@@ -19,36 +19,31 @@
 \usepackage{float}
 \usepackage{fancyhdr}
 \usepackage{booktabs}
-
 \usepackage{pgfplots}
-\pgfplotsset{width=10cm,compat=1.9}
-\usepgfplotslibrary{external}
-\tikzexternalize
+
+\pgfplotsset{width=10cm,compat=1.18}
 
 \usepackage{lipsum} %% Delete this line later.
 
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[R]{Baturay KAFKAS 2240357068 Electrical \& Electronics Engineering}
 
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0pt} 
 \renewcommand{\footrulewidth}{0pt}
 
-
+\fancyhf{} %% Removes the page numbers.
+\fancyhead[R]{Baturay Kafkas - 2240357068 - Electrical \& Electronics Engineering}
 
 %%\setcounter{page}{[NUM]} Enter the next integer after the last page number used.
-
-
 
 \begin{document}
 
 \large %% Default font size
 
 %%------------------------------------%%
-{\textit{This part of the experiment is prepared with Online LaTeX Editor Overleaf, and the circuits are drawn in LTspice. Visit the website for the code here:}} %% May omit the circuit part or insert anything else in the preamble.
+[description] e.g.: {\textit{This part of the experiment is prepared with Online LaTeX Editor Overleaf, and the circuits are drawn in LTspice. Visit the website for the code here:}} %% May omit the circuit part or insert anything else in the preamble.
 
-{\textbf{https://www.overleaf.com/read/[UPDATE HERE]}} %% Update the link.
+%%{\textbf{https://www.overleaf.com/read/[UPDATE HERE]}} %% Update the link.
 \vspace{4mm}
 \hrule
 \vspace{4mm}
@@ -60,7 +55,7 @@
 
 
 %% Example question and its answer.
-{\textbf{[NUM].1} \lipsum[1]} %% Edit the text.
+{\textbf{[NUM].[num]} \lipsum[1]} %% Edit the text.
 
 \vspace{4mm} %% Spacing
 
@@ -94,31 +89,44 @@
 
 %% Example graph
 
+\begin{center}
 \begin{tikzpicture}
-    \begin{axis}[
-        title={Graph 3: The relation between I$_\text{in}$ and I$_\text{2}$},
-        width = 8cm,
-        xlabel={I$_\text{in}$ (mA)},
-        ylabel={I$_\text{2}$ (mA)},
-        xmin=4, xmax=28,
-        ymin=2, ymax=12,
-        xtick={2, 7, 12, 17, 22, 27},
-        ytick={2, 4, 6, 8, 10, 12},
-        legend pos=north west,
-        ymajorgrids=true,
-        xmajorgrids=true,
-        grid style=dashed,
-    ]
-    
-    \addplot[
-        color=blue,
-        mark=square,
-        ]
-        coordinates {
-        (5,2)(10,4)(15,6)(25,10)(27.6, 11.1)
-        };
-    
-    \end{axis}
+\begin{axis}[
+title={Graph 3: The relation between $I_{\text{in}}$ and $I_2$},
+width=8cm,
+xlabel={$I_{\text{in}}$ (mA)},
+ylabel={$I_2$ (mA)},
+xmin=4, xmax=28,
+ymin=2, ymax=12,
+xtick={2,7,12,17,22,27},
+ytick={2,4,6,8,10,12},
+ymajorgrids=true,
+xmajorgrids=true,
+grid style=dashed
+]
+
+\addplot[
+color=blue,
+mark=square
+]
+coordinates {
+(5,2)
+(10,4)
+(15,6)
+(25,10)
+(27.6,11.1)
+};
+
+\end{axis}
 \end{tikzpicture}
+\end{center}
+
+%% Example minipage
+
+\begin{minipage}{0.48\textwidth} 
+
+\end{minipage}\hfill\begin{minipage}{0.48\textwidth}
+
+\end{minipage}
 
 \end{document}
