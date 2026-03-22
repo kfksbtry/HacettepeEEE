@@ -119,7 +119,7 @@ Find the values $A, B$, and $C$.
 \[C=\left.\frac{2s(s+3)}{(s+6.57)(s+0.715+j0.313)}\right|_{s=-0.715+j0.313}\approx0.318+j0.927\approx0.980\,\phase{71.1^\circ}\]
 
 Using the inverse Laplace transform table, the solution is then
-\[v_\text{out}(t)=\mathcal{L}^{-1}\left\{V_\text{out}(s)\right\}=\left[1.364e^{-6.57t}+1.96e^{0.715t}\cos(0.313t+71.1^\circ)\right]\cdot u(t).\]
+\[v_\text{out}(t)=\mathcal{L}^{-1}\left\{V_\text{out}(s)\right\}=\left[1.364e^{-6.57t}+1.96e^{-0.715t}\cos(0.313t+71.1^\circ)\right]\cdot u(t).\]
 
 %Solve for $v_{\text{out}}$.
 %\[v_{\text{out}}(t)=-\frac1C\int_0^ti_{L_1}(\tau)\,d\tau-R_1\cdot i_{L_1}(t)-L\frac{di_{L_1}}{dt}.\]
@@ -186,7 +186,7 @@ title('Graph: $V_{\textrm{out}}$ over time', Interpreter='latex')
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{fig1.png}
+    \includegraphics[width=0.85\linewidth]{fig1.png}
 \end{figure}
 
 \end{enumerate}
