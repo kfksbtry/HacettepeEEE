@@ -317,7 +317,7 @@ From KVL,
 \[-0.1-\frac{300}s-40I_L+\frac{10^6}{s}I_L+20sI_L\cdot10^{-3}=0\implies I_L=\frac{0.1+\dfrac{300}s}{\dfrac{10^6}s+40+0.02s}\]
 \[I_L=\dfrac{5s+15000}{s^2+2000s+50\cdot10^6}=\frac{K_1}{s+1000-j7000}+\frac{K_1^*}{s+1000+j7000}\]
 \[K_1=\left.\frac{5s+15000}{s+1000+j7000}\right|_{s=-1000+j7000}z=2.5-j0.714\]
-\[\implies\boxed{i_L(t)=[5.2e^{-1000t}\cos(7000t-15.945^\circ)]u(t)}\]
+\[\implies\boxed{i_L(t)=[5.2e^{-1000t}\cos(7000t-15.945^\circ)]u(t)\text{ A}}\]
 
 The steady part is $0$ because the capacitor is open at infinity $\left(\omega=0\implies \frac1{j\omega C}\to\infty\right)$, leading to $i_{L_{ss}}=0$.
 
@@ -340,7 +340,7 @@ Zero the $50\text{ V}$ source and apply a test voltage.
 \[\frac{V_x}1+\frac{V_x-0.2V_x-V_t}1+\frac{V_x-V_t}{1/s}=0\quad\text{and}\quad V_x=i_t\]
 \[I_t(2-0.2+s)=V_t(s+1)\implies\frac{V_t}{I_t}=R_{Th}=\frac{1.8+s}{s+1}\]
 
-\[\boxed{I(s)=\frac{\dfrac{50s+40}{s(s+1)}}{1+0.4s+\dfrac{s+1.8}{s+1}}=\frac{125s+100}{s(s^2+6s+7)}}\]
+\[\boxed{I(s)=\frac{\dfrac{50s+40}{s(s+1)}}{1+0.4s+\dfrac{s+1.8}{s+1}}=\frac{125s+100}{s(s^2+6s+7)}\text{ A--s}}\]
 
 \item The $s$--domain equivalent circuit:
 
@@ -415,13 +415,13 @@ Zero the voltage source.
 
 \item From KCL,
 \[0.016sI_L-0.02-\frac{2.75}s+20I_L+\frac{12500}sI_L+\frac{150}s=0\implies I_L=\frac{7812.5+1.25s}{s^2+1250s+781250}\]
-\[\boxed{V_o=\frac{12500}sI+\frac{150}s=\frac{150s^2+203125s+214843750}{s(s^2+1250s+781250)}}\]
+\[\boxed{V_o=\frac{12500}sI+\frac{150}s=\frac{150s^2+203125s+214843750}{s(s^2+1250s+781250)}\text{ V--s}}\]
 
 \item From (b)
 \[V_o=\frac{K_1}{s}+\frac{K_2}{s+625-j625}+\frac{K_2^*}{s+625+j625}\]
 \[K_1=\left.\frac{150s^2+203125+214843750}{s^2+1250s+781250}\right|_{s=0}=275\]
 \[K_2=\left.\frac{150s^2+203125+214843750}{s(s+625+j625)}\right|_{s=-625+j625}=80.04\phase{141.34^\circ}\]
-\[\implies \boxed{v_o(t)=[2755+160.08{e^{-625t}}\cos(625t+141.34^\circ)]u(t)\text{ V}}\]
+\[\implies \boxed{v_o(t)=[275+160.08{e^{-625t}}\cos(625t+141.34^\circ)]u(t)\text{ V}}\]
 \end{enumerate}
 
 \item Initial conditions:
@@ -449,7 +449,7 @@ Zero the voltage source.
 \item From (b), we have
 \[I_o=\dfrac{0.24s+23400}{s^2+160000s+10^{10}}=\frac{K_1}{s+80000-j60000}+\frac{K_1^*}{s+80000+j60000}\]
 \[K_1=\left.\dfrac{0.24s+23400}{s+80000+j60000}\right|_{s=-80000+j60000}=0.125\phase{-16.26^\circ}\]
-\[\implies\boxed{i_L(t)=[0.5e^{-80000t}\cos(60000t-16.26^\circ)]u(t)\text{ A}}\]
+\[\implies\boxed{i_L(t)=[0.25e^{-80000t}\cos(60000t-16.26^\circ)]u(t)\text{ A}}\]
 
 \end{enumerate}
 
@@ -469,7 +469,7 @@ $\displaystyle\lim_{t\to\infty}v_o(t)=\lim_{s\to0}sV_o(s)=\frac{s}{s^2+140s+4000
 
 \item From (a), we have
 \[V_o=\dfrac{60}{s^2+140s+4000}=\frac{K_1}{s+100}+\frac{K_2}{s+40} \quad[K_1=-1,\:K_2=1 \text{ directly}]\]
-\[v_o(t)=(e^{-40t}-e^{-100t})u(t)\text{ V}\]
+\[\boxed{v_o(t)=(e^{-40t}-e^{-100t})u(t)\text{ V}}\]
 
 \end{enumerate}
 
@@ -485,7 +485,7 @@ $\displaystyle\lim_{t\to\infty}v_o(t)=\lim_{s\to0}sV_o(s)=\frac{s}{s^2+140s+4000
 \item From KCL equations,
 \[\frac{V_1-\frac{325}s}{250}+\frac{V_1}{500}+\frac{V_1-V_2}{250}=0,\:\frac{V_2}{0.625s}+\frac{V_2-V_1}{250}+\frac{V_2-\frac{325}s}{1250000s}=0\implies 5V_1-2V_2=\frac{650}s\]
 \[-5000sV_1+(s^2+5000s+2000000)V_2=325s\implies V_2=\frac{325}{s+1000}\]
-\[\boxed{\begin{array}{rl}V_o&=\dfrac{325}s-\dfrac{325}{s+1000}\\[1em]I_o&=\dfrac{0.52}s-\dfrac{0.52}{s+1000}\end{array}}\]
+\[\boxed{\begin{array}{rl}V_o&=\dfrac{325}s-\dfrac{325}{s+1000}\text{ V--s}\\[1em]I_o&=\dfrac{0.52}s-\dfrac{0.52}{s+1000}\text{ A--s}\end{array}}\]
 
 \item Using the results in $(a)$,
 \[\boxed{\begin{array}{rl}v_o(t)&=(325-325e^{-1000t})u(t)\text{ V}\\i_o(t)&=(520-520e^{-1000t})u(t)\text{ mA}\end{array}}\]
@@ -549,13 +549,13 @@ Replacing $V_\phi$ in the KCL equation and solving for $V_o$, we get
 
 $25I +1.25\cdot10^{-3}sI+\dfrac{450}s=0\implies I=\dfrac{-450s}{25+1.25\cdot10^{-3}s+\dfrac{125000}s}$
 
-$\boxed{V_1=-25I=\dfrac{9000000}{(s+10000)^2}}$
+$\boxed{V_1=-25I=\dfrac{9000000}{(s+10000)^2}\text{ V--s}}$
 \[K_1=90s+1800000|_{s=-10000}=900000,\quad K_2=90\]
 \[\implies\boxed{v_1(t)=(9000000te^{-10000t})u(t)\text{ V}}\]
 
 \item $v_2=I\cdot(25000/s)+90/s=\dfrac{90s+1800000}{s^2+20000s+10^8}=\dfrac{K_1}{(s+10000)^2}+\dfrac{K_2}{s+10000}$
 \[K_1=90s+18\cdot10^5|_{s=-10000}=9\cdot10^5,\quad K_2=90\]
-\[\boxed{V_2=\frac{900000}{(s+10000)^2}+\frac{90}{s+10000}}\]
+\[\boxed{V_2=\frac{900000}{(s+10000)^2}+\frac{90}{s+10000}\text{ V--s}}\]
 \[\implies \boxed{v_2(t)=[900000te^{-10000t}+90e^{-10000t}]u(t)\text{ V}}\]
 
 \end{enumerate}
@@ -569,8 +569,8 @@ $\boxed{V_1=-25I=\dfrac{9000000}{(s+10000)^2}}$
 \end{figure}
 
 \item From KVL,
-\[-\frac{20}s+50000I_1+\frac{5\cdot10^6I_1}s=0\implies \boxed{I_1=\frac{20}{5000000+50000s}=\frac{0.4\cdot10^{-3}}{s+100}}\]
-\[\boxed{V_1=\frac{10}3\cdot\frac{10^6}s\cdot I=\frac{4000/3}{s(s+100)},\quad V_2=\frac{10^7}{6s}\cdot I=\frac{2000/3}{s(s+100)}}\]
+\[-\frac{20}s+50000I_1+\frac{5\cdot10^6I_1}s=0\implies \boxed{I_1=\frac{20}{5000000+50000s}=\frac{0.4\cdot10^{-3}}{s+100}\text{ A--s}}\]
+\[\boxed{V_1=\frac{10}3\cdot\frac{10^6}s\cdot I=\frac{4000/3}{s(s+100)}\text{ V--s},\quad V_2=\frac{10^7}{6s}\cdot I=\frac{2000/3}{s(s+100)}\text{ V--s}}\]
 
 \item $\boxed{I=(0.4\cdot10^{-3}e^{-100t})u(t)\text{ A}}$
 \[V_1=\frac{K_1}s+\frac{K_2}{s+100}\implies K_1=\left.\frac{4000/3}{s+100}\right|_{s=0}=\frac{40}3,\:K_2=\left.\frac{4000/3}{s}\right|_{s=-100}=-\frac{40}3\]
@@ -594,12 +594,12 @@ $\boxed{V_1=-25I=\dfrac{9000000}{(s+10000)^2}}$
 
 \[\implies \boxed{i(t)=\underbrace{\frac{V_m(L\omega\cos\phi-R\sin\phi)}{\omega^2L^2+R^2}e^{-\frac RLt}}_{\text{Transient State}}+\underbrace{\frac{V_m\sin[\omega t+\phi-\theta(\omega)]}{\sqrt{\omega^2L^2+R^2}}}_{\text{Steady State}}\text{ A}}\]
 
-\item $\boxed{\frac{V_m(L\omega\cos\phi-R\sin\phi)}{\omega^2L^2+R^2}e^{-\frac RLt}}$
+\item $\boxed{\frac{V_m(L\omega\cos\phi-R\sin\phi)}{\omega^2L^2+R^2}e^{-\frac RLt}\text{ A}}$
 
-\item $\boxed{\frac{V_m\sin[\omega t+\phi-\theta(\omega)]}{\sqrt{\omega^2L^2+R^2}}}$
+\item $\boxed{\frac{V_m\sin[\omega t+\phi-\theta(\omega)]}{\sqrt{\omega^2L^2+R^2}}\text{ A}}$
 
 \item $\mathbf{V}_g=\mathbf{I}(j\omega L+R)\implies\mathbf{I}=\dfrac{V_m\phase{\phi-90^\circ}}{\sqrt{\omega^2L^2+R^2}\phase{\theta(\omega)}}$
-\[\implies\boxed{\Re(\mathbf{I})=\frac{V_m}{\sqrt{\omega^2L^2+R^2}}\sin[\omega t+\phi-\theta(\omega)]}\]
+\[\implies\boxed{\Re(\mathbf{I})=\frac{V_m}{\sqrt{\omega^2L^2+R^2}}\sin[\omega t+\phi-\theta(\omega)]\text{ A}}\]
 
 \item $L\omega\cos\phi=R\sin\phi\implies\boxed{\phi=\tan^{-1}\left(\dfrac{\omega L}{R}\right)}$
 
@@ -675,7 +675,7 @@ Zero the voltage source.
 \[I''=\frac{80}{\left(\frac{32000}{s}\:\|\:40\right)+0.4s+80}\cdot\frac6s=\frac{480(s+800)}{s(0.4s^2+400s+96000)}\]
 \[V_o''=\frac{1200(s+800)}{s(s^2+1000s+240000)}\cdot\left(\frac{32000}{s}\:\|\:40\right)=\frac{38400000}{s(s^2+1000s+240000)}\]
 
-\[\implies \boxed{V_o=V_o'+V_o''=\frac{320000(s+320)}{s(s^2+1000s+240000)}}\]
+\[\implies \boxed{V_o=V_o'+V_o''=\frac{320000(s+320)}{s(s^2+1000s+240000)}\text{ V--s}}\]
 
 \item $V_o=\dfrac{K_1}{s}+\dfrac{K_2}{s+400}+\dfrac{K_3}{s+600}$.
 \[K_1=\left.\frac{320000(s+320)}{s^2+1000s+240000}\right|_{s=0}=\frac{1280}3,\quad K_2=\left.\frac{320000(s+320)}{s(s+600)}\right|_{s=-400}=320\]
