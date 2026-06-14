@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm, a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Baturay Kafkas - 2240357068 - Electrical \& Electronics Engineering}
+
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\large
+\textbf{MAT236 - Homework 4 (SENT ON 29.04.2026)}
+\end{center}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{Q\arabic*.}]
+\item Let $z = x + iy$, where $x, y \in \mathbb{R}$. Using the exponential definition:
+\[\cos z = \frac{e^{iz} + e^{-iz}}{2}\]
+
+Substitute $z = x + iy$:
+\[\cos(x + iy) = \frac{e^{i(x+iy)} + e^{-i(x+iy)}}{2} = \frac{e^{ix - y} + e^{-ix + y}}{2}= \frac{e^{-y}e^{ix} + e^{y}e^{-ix}}{2}\]
+
+Now use Euler’s formula:
+\[e^{ix} = \cos x + i\sin x, \quad e^{-ix} = \cos x - i\sin x\]
+
+Substitute:
+\[f(z)= \frac{e^{-y}(\cos x + i\sin x) + e^{y}(\cos x - i\sin x)}{2}\]
+
+Expand:
+\[f(z)= \frac{(e^{-y} + e^{y})\cos x + i(e^{-y} - e^{y})\sin x}{2}\]
+
+Use hyperbolic identities:
+\[\cosh y = \frac{e^{y} + e^{-y}}{2}, \quad \sinh y = \frac{e^{y} - e^{-y}}{2}\]
+
+So:
+\[\cos(x + iy) = \cos x \cosh y - i \sin x \sinh y\]
+
+\[\boxed{\operatorname{Re}\{\cos z\} = \cos x \cosh y, \quad
+\operatorname{Im}\{\cos z\} = -\sin x \sinh y}\]
+
+\end{enumerate}
+
+\end{document}

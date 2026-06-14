@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm, a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Baturay Kafkas - 2240357068 - Electrical \& Electronics Engineering}
+
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\large
+\textbf{MAT236 - Homework 1\&2\&3 (SENT ON 31.03.2026)}
+\end{center}
+
+\section{Questions}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{Q\arabic*.}]
+\item\textbf{Solve $w^n = z$, $n \in \mathbb{R}$.}
+
+Let $z = r e^{i\theta}, \quad r = |z| > 0, \ \theta = \arg(z)$. Now, let $w = \rho e^{i\phi}$. Then
+\[w^n = \rho^n e^{i n \phi} = r e^{i\theta}.\]
+
+Equating:
+\[
+\rho^n = r \Rightarrow \rho = r^{1/n},
+\]
+\[
+n\phi = \theta + 2\pi k, \quad k \in \mathbb{Z}.
+\]
+
+Thus
+\[
+\boxed{w_k = r^{1/n} e^{i \frac{\theta + 2\pi k}{n}}, \quad k \in \mathbb{Z}}.
+\]
+
+\item \textbf{Consider the complex equation $az^2 + bz + c = 0$. When are the roots conjugate?}
+
+We have
+\[
+az^2 + bz + c = 0, \quad a,b,c \in \mathbb{R}.
+\]
+
+Roots:
+\[
+z = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
+\]
+
+The roots are conjugate iff
+\[
+\boxed{b^2 - 4ac < 0}.
+\]
+
+\item \textbf{Solve $z^2 + \overline{z}^2 = -1$}.
+
+Let $z = x + iy$, then $\overline{z} = x - iy$.
+
+\[
+z^2 = x^2 - y^2 + 2ixy
+\]
+\[
+\overline{z}^2 = x^2 - y^2 - 2ixy,\qquad z^2 + \overline{z}^2 = 2(x^2 - y^2)
+\]
+
+\[
+2(x^2 - y^2) = -1 \Rightarrow \boxed{x^2 - y^2 = -\frac{1}{2}}.
+\]
+
+\item \textbf{Solve} $\text{Arg}(z - i) = \frac{\pi}{2}$.
+
+Let $z = x + iy$, then
+\[
+z - i = x + i(y-1).
+\]
+
+For $\text{Arg}(z - i) = \frac{\pi}{2}$
+\[
+x = 0, \quad y - 1 > 0.
+\]
+
+Thus
+\[
+\boxed{z = iy, \quad y > 1}.
+\]
+\end{enumerate}
+
+\end{document}

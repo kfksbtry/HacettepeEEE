@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm, a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Baturay Kafkas - 2240357068 - Electrical \& Electronics Engineering}
+
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\large
+\textbf{MAT236 - Homework 5 (SENT ON 04.05.2026)}
+\end{center}
+
+\noindent\textbf{Homework}: Today (04/05/2026) we argued on the statement why $\sin z=0\implies z=k\pi,\:k\in\mathbb{Z}$ but $\arcsin z=0,\:z=2k\pi,\:k\in\mathbb{Z}$. The issue is addressed below.
+
+\section{The General Solution of $\sin(z) = 0$}
+The equation $\sin(z) = 0$ is satisfied for all values of $z$ where the sine function vanishes. In the complex plane, this occurs only on the real axis at integer multiples of $\pi$:
+\begin{equation*}
+z = k\pi, \quad k \in \mathbb{Z}
+\end{equation*}
+
+\section{Logarithmic Definition of $\arcsin(z)$}
+The inverse sine function is defined using the complex logarithm as:
+\begin{equation*}
+\arcsin(z) = -i \ln\left(iz + \sqrt{1 - z^2}\right)
+\end{equation*}
+Evaluating this at $z = 0$ yields:
+\begin{equation*}
+\arcsin(0) = -i \ln\left(i(0) + \sqrt{1 - 0^2}\right) = -i \ln(\pm 1)
+\end{equation*}
+
+\section{Resolve by Cases}
+
+\subsection{Case A: The Positive Side}
+If we take $\sqrt{1} = 1$, then $\arcsin(0) = -i \ln(1)$. Since the general complex logarithm is $\ln(1) = i(2k\pi)$, we have:
+\begin{equation*}
+-i(i \cdot 2k\pi) = 2k\pi
+\end{equation*}
+This yields only the \textbf{even} multiples of $\pi$.
+
+\subsection{Case B: The Negative Side}
+If we take $\sqrt{1} = -1$, then $\arcsin(0) = -i \ln(-1)$. Since $\ln(-1) = i(\pi + 2k\pi)$, we have:
+\begin{equation*}
+-i(i(\pi + 2k\pi)) = (2k + 1)\pi
+\end{equation*}
+This yields only the \textbf{odd} multiples of $\pi$.
+
+\section{Conclusion}
+\begin{equation*}
+z = \{2k\pi\} \cup \{(2k+1)\pi\} = k\pi
+\end{equation*}
+
+\noindent In the class, we forgot to examine the negative side. The argument $\arcsin z=0,\:z=2k\pi,\:k\in\mathbb{Z}$ seems to be false. $\arcsin z$ is $\boxed{k\pi}$ periodic.
+
+\end{document}
