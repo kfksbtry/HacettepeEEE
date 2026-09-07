@@ -1,0 +1,245 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Essential Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{pgfplots}
+\usepackage[inline]{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% Misc
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{fillbetween}
+\setlength{\parskip}{3pt}
+\setstretch{1.15}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+\textbf{2022-2023 Fall\\MAT123 Final\\13/01/2023}
+\end{center}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item Evaluate the following definite integrals.
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item $\displaystyle\int_0^1\frac{x^2}{\sqrt{4-x^2}}\,dx$
+\item $\displaystyle\int_0^{\pi/4}x\sec^2x\,dx$
+\end{enumerate}
+
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Consider the finite region between the curves $y= e^{-x},\:y=x/ e$, and the $y$-axis. Write a definite integral (do not evaluate) by using the Cylindrical Shell Method, which gives the volume of the solid obtained by rotating this region about the $x$-axis.
+
+\item Consider the infinite region between the curves $y= e^{-x},\:y=x/ e$ and the $x$-axis. Write a definite integral (do not evaluate) by using the Washer Method, which gives the volume of the solid obtained by rotating this region about the line $y=-1$.
+
+\item Evaluate the area of the region given in part (a).
+\end{enumerate}
+
+\item Determine whether each series is convergent or divergent.
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item $\displaystyle\sum_{n=1}^\infty\frac1{\arctan\left(n^2\right)}$
+\item $\displaystyle\sum_{n=1}^\infty\sin\left(\frac1{n^3}\right)$
+\item $\displaystyle\sum_{n=1}^\infty n e^{-n^2}$
+\end{enumerate}
+
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Find the radius and interval of convergence of the power series
+\[\sum_{n=1}^\infty\frac{2^{n+1}\cdot(x+1)^n}{n\cdot3^n}.\]
+
+\item Using the formula $\displaystyle\frac1{1-x}=\sum_{n=0}^\infty x^n$ for $\left|x\right|<1$, find the Maclaurin series of the function
+\[f(x)=\frac{x^{123}}{1+x^4}.\]
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[R]{\textit{2022-2023 Fall Final}}
+\fancyhead[L]{\textit{Hacettepe MAT123 Exam Solutions Version 2}}
+
+% Last update: 06/09/2026 16:12
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Let $x=2\sin u$ for $\displaystyle-\frac\pi2<u<\frac\pi2$, then $dx=2\cos u\,du$.
+\[x=0\implies2\sin u=0\implies u=0\]
+\[x=1\implies2\sin u=1\implies\sin u=\frac12\implies u=\arcsin\frac12=\frac\pi6\]
+
+\begin{align*}
+I&=\int_0^1\frac{x^2}{\sqrt{4-x^2}}\,dx=\int_0^{\pi/6}\frac{4\sin^2u}{\sqrt{4-4\sin^2u}}\cdot2\cos u\,du\int_0^{\pi/6}\frac{4\sin^2u\cos u}{\left|\cos u\right|}\,du\\[1em]&=\int_0^{\pi/6}4\sin^2u\,du=4\int_0^{\pi/6}\left(1-\cos^2u\right)\,du=4\int_0^{\pi/6}\frac{1-\cos2u}2\,du\\[1em]&=4\left(\frac u2-\frac{\sin 2u}4\right)\Bigg|_0^{\pi/6}=2u-\sin 2u\:\Bigg|_0^{\pi/6}=\left(\frac\pi3-\sin\frac\pi3\right)-0=\boxed{\frac\pi3-\frac{\sqrt3}2}
+\end{align*}
+
+\item Use the method of integration by parts.
+\[\left.\begin{array}{c}
+u=x\implies du=dx\\[1em]
+dv=\sec^2x\,dx\implies\displaystyle v=\tan x
+\end{array}\right\}\rightarrow\int_a^b u\,dv=uv\bigg|_a^b-\int_a^b v\,du\]
+\begin{align*}
+\int_0^{\pi/4}x\sec^2x\,dx
+&=x\tan x\bigg|_0^{\pi/4}-\int_0^{\pi/4}\tan x\,dx
+=x\tan x+\ln\left|\cos x\right|\bigg|_0^{\pi/4}\\[1em]
+&=\boxed{\frac\pi4+\ln\frac{\sqrt2}{2}}
+\end{align*}
+\end{enumerate}
+
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item\leavevmode
+\vspace{-1em}
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines=center,
+      axis equal image,
+      xlabel={$x$},
+      ylabel={$y$},
+      ytick=\empty, xtick=\empty,
+      xmin=-0.2, xmax=3.5,
+      ymin=-0.25, ymax=1.2,
+      samples=250,
+      clip=true,
+      scale=1.6,
+      domain=-0.5:4,
+    ]
+
+    \addplot [thick, blue, name path=A] {e^(-x)};
+    \addplot [thick, red, name path=B] {x/e};
+    \addplot [blue!20, fill opacity=0.6] fill between[of=A and B, soft clip={domain=0:1}];
+    
+    \node at (1,-0.1) {$1$};
+    \node at (-0.1,0.367) {$\dfrac1{e}$};
+    \node at (-0.08,0.95) {$1$};
+
+    \node[red] at (1.6,1) {$y=x/ e$};
+    \node[red] at (1.6,0.8) {$x= e\cdot y$};
+
+    \node[blue] at (3,0.4) {$y= e^{-x}$};
+    \node[blue] at (3,0.2) {$x=-\ln y$};
+
+    \draw[dashed] (0,0.367)--(1,0.367); \draw[dashed] (1,0)--(1,0.367);
+
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\[V=\int_D2\pi\,h(y)\,r(y)\,dy=\boxed{\int_0^{1/e}2\pi y\left(e y-0\right)\,dy+\int_{1/e}^12\pi y\left(-\ln y-0\right)\,dy}\]
+
+\newpage
+\item\leavevmode
+\vspace{-1em}
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines=center,
+      axis equal image,
+      xlabel={$x$},
+      ylabel={$y$},
+      ytick=\empty, xtick=\empty,
+      xmin=-0.25, xmax=3.5,
+      ymin=-1.2, ymax=1.2,
+      samples=250,
+      clip=true,
+      scale=1.5,
+      domain=-0.5:4,
+    ]
+
+    \addplot [thick, blue, name path=A] {e^(-x)};
+    \addplot [thick, red, name path=B] {x/e};
+    \addplot [draw=none, name path=C] {0};
+    \addplot [blue!20, fill opacity=0.6] fill between[of=B and C, soft clip={domain=0:1}];
+    \addplot [blue!20, fill opacity=0.6] fill between[of=A and C, soft clip={domain=1:4}];
+
+    \node at (1,-0.1) {$1$};
+    \node at (-0.1,0.367) {$\dfrac1{e}$};
+    \node at (-0.08,0.95) {$1$};
+
+    \node[red] at (1.6,1) {$y=x/ e$};
+    \node[red] at (1.6,0.8) {$x= e\cdot y$};
+
+    \node[blue] at (3,0.4) {$y= e^{-x}$};
+    \node[blue] at (3,0.2) {$x=-\ln y$};
+
+    \node at (-0.12,-0.9) {$-1$};
+    \node at (3,-0.9) {$y=-1$};
+
+    \draw[dashed] (0,0.367)--(1,0.367); \draw[dashed] (1,0)--(1,0.367); \draw[thick] (-1,-1)--(4,-1); 
+
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+\[V=\int_D\pi\left[r_2^2(x)-r_1^2(x)\right]dx=\hspace{-0.2em}\boxed{\int_0^1\left[\left(\frac x{e}+\hspace{-0.2em}1\right)^2-1^2\right]dx+\hspace{-0.2em}\int_1^{\infty}\left[\left(e^{-x}\hspace{-0.2em}+\hspace{-0.2em}1\right)^2-1^2\right]dx}\]
+
+\item The volume can be expressed by the following integral.
+\begin{equation}V=2\pi\left[\int_0^{1/e} ey^2\,dy-\int_{1/e}^1y\ln y\,dy\right]\label{eq:22_23_fall_final_1}\end{equation}
+
+Calculate the integral on the left in \eqref{eq:22_23_fall_final_1}.
+\[\int_0^{1/e} ey^2\,dy=\frac{ ey^3}3\Bigg|_0^{1/ e}=\frac1{3 e^2}\]
+
+Calculate the integral on the right in \eqref{eq:22_23_fall_final_1} by using the method of integration by parts.
+\[\left.\begin{array}{c}
+u=\ln x\implies du=\dfrac1x\,dx\\[1em]
+dv=x\,dx\implies\displaystyle v=\frac{x^2}2
+\end{array}\right\}\rightarrow\int_a^b u\,dv=uv\bigg|_a^b-\int_a^b v\,du\]
+
+\begin{align*}\int_{1/e}^1x\ln x\,dx&=\frac{x^2\ln x}2\Bigg|_{1/ e}^1-\int_{1/ e}^1\frac{x^2}2\cdot\frac1x\,dx=\frac{x^2\ln x}2-\frac{x^2}4\Bigg|_{1/ e}^1\\[1em]&=\left(0-\frac14\right)-\left(-\frac1{2 e^{2}}-\frac1{4 e^2}\right)=\frac3{4 e^2}-\frac14\end{align*}
+
+Therefore,
+\[V=2\pi\left[\left(\frac1{3 e^2}\right)-\left(\frac3{4 e^2}-\frac14\right)\right]=\boxed{\pi\left(\frac12-\frac5{6 e^2}\right)}.\]
+\end{enumerate}
+
+\newpage
+
+\item Determine whether each series is convergent or divergent.
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Apply the $n$th Term Test for divergence. The inverse trigonometric function $\arctan x$ is continuous on $\mathbb{R}$. Therefore, we may take the limit inside the function.
+\[\lim_{n\to\infty}\frac1{\arctan\left(n^2\right)}=\frac1{\arctan\left(\displaystyle\lim_{n\to\infty}n^2\right)}=\frac1{\frac\pi2}=\frac2\pi\neq1\]
+
+By the $n$th Term Test for divergence, the series $\displaystyle\sum_{n=1}^{\infty}\frac1{\arctan\left(n^2\right)}$ $\boxed{\text{diverges}}$.
+
+\item Recall the sine inequality $-\theta\leq\sin\theta\leq\theta$. Then for all $n\in\mathbb{R}$ except zero, we have $\displaystyle-\frac1{n^3}\leq\sin\left(\frac1{n^3}\right)\leq\frac1{n^3}$. The series $\displaystyle\sum_{n=1}^\infty\frac1{n^3}$ converges because it is a $p$-series with $p=3>1$. By the $p$-series Test, the series converges. The series $\displaystyle\sum_{n=1}^{\infty}\sin\left(\frac1{n^3}\right)$ also $\boxed{\text{converges}}$ by the Direct Comparison Test because $\displaystyle\sin\left(\frac1{n^3}\right)<\frac1{n^3}$ for every $n\geq1$.
+
+\item Take $f(x)=x e^{-x^2}$. $f$ is continuous because the product of a polynomial and an exponential expression is still continuous. $f$ is positive and decreasing for $x\geq1$. Verify the monotonicity of $f$ by taking the first derivative.
+\[\frac{df}{dx}=1\cdot e^{-x^2}+x e^{-x^2}\cdot(-2x)= e^{-x^2}\left(1-2x^2\right)\]
+\[f'(x)<0\quad\text{for}\quad x>\frac{\sqrt2}2\implies f'(x)<0\quad\text{for}\quad x\geq1\]
+
+We may now apply the Integral Test. Take the limit for the improper integral.
+\[\int_1^{\infty}x e^{-x^2}dx=\lim_{R\to\infty}\int_1^Rx e^{-x^2}dx=\lim_{R\to\infty}-\frac12 e^{-x^2}\Bigg|_1^R=\lim_{R\to\infty}-\frac12\left( e^{-R^2}-\mathrm{e^{-1}}\right)=\frac1{2 e}\]
+
+The integral converges. Then the series $1\displaystyle\sum_{n=1}^{\infty}n e^{-n^2}$ also $\boxed{\text{converges}}$.
+\end{enumerate}
+
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Apply the Ratio Test for absolute convergence, and apply other tests at the endpoints.
+
+\begin{align*}\lim_{n\to\infty}\left|\frac{2^{n+2}\cdot(x+1)^{n+1}}{(n+1)\cdot3^{n+1}}\cdot\frac{n\cdot3^n}{(x+1)^n\cdot2^{n+1}}\right|&=\lim_{n\to\infty}\left|\frac{2n\cdot(x+1)}{(n+1)\cdot3}\right|\\[1em]&=\frac{2|x+1|}3\cdot\lim_{n\to\infty}\left|\frac{n}{n+1}\right|=\frac{2|x+1|}3\end{align*}
+\[\frac{2|x+1|}3<1\implies|x+1|<\frac32\]
+
+The radius of convergence is $\boxed{\dfrac32}$.
+\[|x+1|<\frac32\implies-\frac32<x+1<\frac32\implies-\frac52<x<\frac12\quad(\text{convergent})\]
+
+Investigate the convergence at the endpoints.
+\[x=\frac12\implies\sum_{n=1}^{\infty}\frac{2^{n+1}\cdot\left(\dfrac32\right)^n}{n\cdot3^n}=\sum_{n=1}^{\infty}\frac2n=2\cdot\sum_{n=1}^{\infty}\frac1n\]
+
+This is a $p$-series with $p=1$, for which the series diverges by the $p$-series Test. Try the other endpoint.
+\[x=-\frac52\implies\sum_{n=1}^{\infty}\frac{2^{n+1}\cdot\left(-\dfrac32\right)^n}{n\cdot3^n}=\sum_{n=1}^{\infty}\frac{2\cdot(-1)^n}n=2\cdot\sum_{n=1}^{\infty}\frac{(-1)^n}n\]
+
+This is an alternating series. The non-alternating part, which is $\frac1n$, is nonincreasing for $n\geq1$ and it is positive. The limit at infinity is $0$. By Leibniz's Alternating Series Test, the series converges.
+
+The convergence set for the power series is $\boxed{\left[-\dfrac52,\dfrac12\right)}$.
+\item Rewrite the function.
+\begin{align*}f(x)&=\frac{x^{123}}{1+x^4}=x^{123}\cdot\frac1{1-\left(-x^4\right)}=x^{123}\cdot\sum_{n=0}^{\infty}\left(-x^4\right)=x^{123}\cdot\sum_{n=0}^{\infty}(-1)^n\cdot x^{4n}\\[1em]&=\boxed{\sum_{n=0}^{\infty}(-1)^n\cdot x^{123+4n}=x^{123}-x^{127}+x^{131}-x^{135}+...}\end{align*}
+\end{enumerate}
+\end{enumerate}
+\end{document}

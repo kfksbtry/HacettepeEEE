@@ -1,0 +1,188 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Essential Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{pgfplots}
+\usepackage[inline]{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% Misc
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{fillbetween}
+\setlength{\parskip}{3pt}
+\setstretch{1.15}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+\textbf{2011-2012 Spring\\MAT123 Final\\29/05/2012}
+\end{center}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item Find the length of the curve $y^2=4(x+1)^3$ for $0\leq x\leq1,\: y>0$.
+
+\item Given $f(x)=x+2x^2+x^3$, find $\left(f^{-1}\right)'(4)$.
+
+\item Evaluate the following integrals.
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item $\displaystyle\int\cos^3x\sin^2x\,dx$
+\item $\displaystyle\int\frac{x^2}{\sqrt{16-x^2}}\,dx$
+\item $\displaystyle\int\frac{x^3-1}{x^3-x}\,dx$
+\item $\displaystyle\int x^{123}\ln x\,dx$
+\end{enumerate}
+
+\item Evaluate $\displaystyle\lim_{x\to\infty}(\ln x)^{\textstyle\frac1x}$.
+
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Determine the series  $\displaystyle\sum_{n=1}^\infty{\frac5{3^n}}$ converges or diverges. Give reasons for your answer.
+
+\item Determine the series $\displaystyle\sum_{n=1}^\infty\cos\left(\frac1{5^n}\right)$ converges or diverges. Give reasons for your answer.
+
+\item Use the Ratio Test to determine if the series $\displaystyle\sum_{n=1}^\infty\frac{n!}{ e^{2n}}$ converges or diverges.
+
+\item Use the Integral Test to determine if the series $\displaystyle\sum_{n=1}^\infty\frac n{ e^{n^2}}$ converges or diverges. Be sure to check that the conditions of the integral test are satisfied.
+\end{enumerate}
+
+\item \textbf{(Bonus)}
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Geometrically, what does $f'(x)$ mean?
+\item If $f(t)$ describes the displacement of an object in time $t$, what is $f'(t)$?
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[R]{\textit{2011-2012 Spring Final}}
+\fancyhead[L]{\textit{Hacettepe MAT123 Exam Solutions Version 2}} 
+
+% Last update: 06/09/2026 23:35
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item $y$ is implicitly defined as a function of $x$. Differentiate each side and solve for $\displaystyle \frac{dy}{dx}$.
+\[\frac d{dx}\left(y^2\right)=\frac d{dx}\left(4(x+1)^3\right)\implies 2y\frac{dy}{dx}=12(x+1)^2\implies\frac{dy}{dx}=\frac{6(x+1)^2}y\]
+
+Since we're interested in the upper part of the curve (i.e., $y>0$), $y=2(x+1)^{3/2}$.
+\[\frac{dy}{dx}=\frac{6(x+1)^2}{2(x+1)^{3/2}}=3\sqrt{x+1}\]
+
+The length of a curve defined by $y=f(x)$ whose derivative is continuous on the interval $a\leq x\leq b$ can be evaluated using the integral
+\[S=\int_a^b\sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx.\]
+
+Set $\displaystyle a=0,\:b=1,\:\frac{dy}{dx}=3\sqrt{x+1}$ and find the length.
+\[S=\int_0^1\sqrt{1+\left(3\sqrt{x+1}\right)^2}\,dx=\int_0^1\sqrt{9x+10}\,dx\]
+
+Let $u=9x+10$, then $du=9\,dx$.
+\begin{align*}
+S&=\int_0^1\sqrt{9x+10}\,dx=\int\frac19\sqrt{u}\,du=\frac19\cdot\frac23u^{3/2}+c=\frac2{27}\left(9x+10\right)^{3/2}\bigg|_0^1\\[1em]&=\boxed{\frac2{27}\left(19^{3/2}-10^{3/2}\right)}
+\end{align*}
+
+\item The derivative of $f^{-1}$ at a point can be calculated using the rule
+\[\left(f^{-1}\right)'(x)=\frac1{f'\left(f^{-1}(x)\right)}.\]
+
+Find the point where $f(x)=4$. We could intuitively say $f(1)=4$ because $f(1)=1+2\cdot1^3+1^3=4$. Therefore,
+\[\left(f^{-1}\right)'\left(4\right)=\frac1{f'\left(f^{-1}(4)\right)}=\frac1{f'(1)}.\]
+
+Calculate the derivative of $f$ at the point $x=1$.
+\[f'(x)=1+4x+3x^2\implies f'(1)=1+4\cdot1+3\cdot1^2=8\]
+
+So,
+\[\left(f^{-1}\right)'\left(4\right)=\boxed{\frac18}.\]
+
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Rewrite the integral.
+\begin{align*}
+I&=\int\cos^3x\sin^2x\,dx\qquad\left[\sin^2+\cos^2x=1\right]\\[1em]&=\int\cos x\cdot\left(1-\sin^2x\right)\cdot\sin^2x\,dx
+\end{align*}
+
+Let $u=\sin x$, then $du=\cos x\,dx$.
+\begin{align*}
+I&=\int\cos x\cdot\left(1-\sin^2x\right)\cdot\sin^2x\,dx=\int\left(1-u^2\right) u^2\,du=\int\left(u^2-u^4\right)\,du\\[1em]&=\frac{u^3}3-\frac{u^5}5+C=\boxed{\frac{\sin^3x}3-\frac{\sin^5x}5+C}
+\end{align*}
+
+\item Let $x=4\sin u$, then $dx=4\cos u\,du$ for $\displaystyle -\frac\pi2<u<\frac\pi2$.
+\begin{align*}
+I&=\int\frac{x^2}{\sqrt{16-x^2}}\,dx=\int\frac{16\sin^2u}{\sqrt{16-16\sin^2u}}\cdot4\cos u\,du\\[1em]&=\int\frac{16\sin^2u\cos u}{\left|\cos u\right|}\,du\quad\left[\cos u>0\right]\\[1em]&=\int16\sin^2u\,du=16\int\left(1-\cos^2u\right)\,du\\[1em]&=16\int\frac{1-\cos2u}2\,du=8\left(u-\frac{\sin2u}2\right)+C=8u-8\sin u\cos u+C
+\end{align*}
+
+Recall: $x=4\sin u$. Then $x^2=16\sin^2u$.
+\[16-16\cos^2u\implies\cos^2u=\frac{16-x^2}{16}\implies\cos u=\sqrt{1-\frac{x^2}{16}}\]
+\[\sin u=\frac{x}4\implies u=\arcsin\frac x4\]
+
+Rewrite the integral.
+\[\boxed{I=8\arcsin\frac x4-2x\sqrt{1-\frac{x^2}{16}}+C,\quad C\in\mathbb{R}}\]
+
+\item Use the method of partial fraction decomposition.
+\begin{align*}
+I&=\int\frac{x^3-1}{x^3-x}\,dx=\int\frac{(x-1)\left(x^2+x+1\right)}{x(x-1)(x+1)}\,dx=\int\frac{x^2+x+1}{x^2+x}\,dx\\[1em]&=\int\left(1+\frac1{x^2+x}\right)\,dx=\int\,dx+\int\frac1{x(x+1)}\,dx=x+\int\left(\frac A{x}+\frac B{x+1}\right)\,dx
+\end{align*}
+\begin{align*}
+A(x+1)+B(x)&=1\\
+x(A+B)+A&=1\\
+\therefore A+B=0\quad[\text{eliminate}\:x]\,&\rightarrow\,A=1\implies B=-1
+\end{align*}
+\[I=x+\int\left(\frac1x-\frac1{x+1}\right)dx=\boxed{x+\ln\left|x\right|-\ln\left|x+1\right|+C,\quad C\in\mathbb{R}}\]
+
+\item Use the method of integration by parts.
+\[\left.\begin{array}{c}
+\displaystyle u=\ln x\implies du=\frac1x\,dx\\[1em]
+\displaystyle dv=x^{123}\,dx\implies v=\frac{x^{124}}{124}
+\end{array}\right\}\rightarrow\int u\,dv=uv-\int v\,du\]
+\[I=\ln x\cdot\frac{x^{124}}{124}-\int\frac{x^{124}}{124}\cdot\frac1x\,dx=\boxed{\frac{\ln x\cdot x^{124}}{124}+\frac{x^{124}}{124^2}+C,\quad C\in\mathbb{R}}\]
+\end{enumerate}
+
+\item Let $L$ be the value of the limit.
+\[L=\lim_{x\to\infty}(\ln x)^{\textstyle\frac1x}\]
+
+Take the logarithm of both sides. We can take the logarithm inside the limit because the expression is continuous for $x>0$. After that, apply L'Hôpital's rule where $0/0$ or $\infty/\infty$ forms occur.
+\begin{align*}
+\ln(L)&=\ln\left(\lim_{x\to\infty}(\ln x)^{\textstyle\frac1x}\right)=\lim_{x\to\infty}\ln\left[\ln(x)^{\textstyle\frac1x}\right]=\lim_{x\to\infty}\frac{\ln(\ln x)}x\quad\left[\frac\infty\infty\right]\\[1em]&\overset{\text{L'H.}}{=}\lim_{x\to\infty}\frac{\displaystyle\frac1{\ln x}\cdot\frac1x}1=\lim_{x\to\infty}\frac1{x\ln x}=0
+\end{align*}
+
+Since $\ln(L)=0$, $\boxed{L=1}$.
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Since the numerator is constant, we can take it out of the summation.
+\[\sum_{n=1}^\infty\frac5{3^n}=5\cdot\sum_{n=1}^\infty\frac1{3^n}=5\sum_{n=1}^\infty\left(\frac13\right)^n\]
+
+This is a geometric series with $\displaystyle r=\frac13<1$. Therefore, the series $\boxed{\text{converges}}$.
+
+\item Take the limit of the sequence at infinity. We can take the limit inside the trigonometric function because it is continuous everywhere.
+\[\lim_{n\to\infty}\cos\left(\frac1{5^n}\right)=\cos\left(\lim_{n\to\infty}\frac1{5^n}\right)=\cos(0)=1\neq0\]
+
+By the $n$th Term Test for divergence, the series $\boxed{\text{diverges}}$.
+
+\item Let $\displaystyle a_n=\frac{n!}{\mathrm{e^{2n}}}$. Then,
+\[\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\lim_{n\to\infty}\left|\frac{(n+1)!}{ e^{2(n+1)}}\cdot\frac{ e^{2n}}{n!}\right|=\lim_{n\to\infty}\left|\frac{n+1}{ e^2}\right|=\infty>1.\]
+
+By the Ratio Test, the series $\boxed{\text{diverges}}$.
+\item Let $a_n=f(n)$, where $n\in\mathbb{N}$. The function $\displaystyle f(x)=\frac x{ e^{x^2}}$ is positive, continuous and decreasing for $x>1$.
+\[\left.\begin{array}{c}
+x>0\\
+ e^{x^2}>0
+\end{array}\right\}\:\text{for}\: x>1\implies\frac x{ e^{x^2}}>0\]
+
+$ e^{x^2}$ grows at a higher rate than $x$. Therefore, $f$ is decreasing. The expressions are continuous for $x>1$. We may now apply the Integral Test. Handle the improper integral with the limit.
+\[\int_1^\infty\frac x{ e^{x^2}}\,dx=\lim_{R\to\infty}-\frac12 e^{-x^2}\bigg|_1^R=\lim_{R\to\infty}-\frac12\left( e^{-R^2}- e^{-1}\right)=\frac1{2 e}\quad\left(\text{converges}\right)\]
+
+By the Integral Test, the series $\boxed{\text{converges}}$.
+\end{enumerate}
+
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Let $y=f(x)$ be a continuous function on a bounded interval, and let $f$ be differentiable on the same interval except possibly at the endpoints. Then $f'(x)$ gives the first derivative. $f'(x)$ gives the instantaneous rate of change of the function at a certain point and it gives the slope of the line that is tangent to the graph of the function at that point.
+
+\item Given $f(t)$ describes the displacement, $f'(t)$ corresponds to the instantaneous velocity of the object.
+\end{enumerate}
+\end{enumerate}
+\end{document}

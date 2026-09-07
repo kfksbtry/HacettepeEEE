@@ -1,0 +1,137 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Essential Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{pgfplots}
+\usepackage[inline]{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% Misc
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{fillbetween}
+\setlength{\parskip}{3pt}
+\setstretch{1.15}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+\textbf{2024-2025 Fall \\MAT123 Midterm\\14/11/2025}
+\end{center}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item Given that
+\[
+f(x) =
+\begin{cases}
+e^{-1/x^2}, & \text{if } x\neq0 \\[1em]
+0, & \text{otherwise}
+\end{cases},
+\]
+find all critical and singular points of $f(x)$. Determining the intervals where $f(x)$ increases and where it decreases, find local extreme values.
+
+\item Determine whether each of the statement below is true or false, providing short explanations if it is true and counterexamples if it is false.
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Every increasing function has inverse.
+\item If a function is continuous on an interval $I$, then it must be differentiable on $I$.
+\item If $f'(c)=0$ for some point $c$ in the domain of a function $f$, then $f(c)$ is either a local minimum or a local maximum value of $f$.
+\item If both $f'(x)$ and $f''(x)$ exist, with $f''(x)\neq0$ and $f'(x)/f''(x)>0$ on the open interval $(a,b)$, then $f(x)$ must be either increasing or decreasing on $(a,b)$.
+\end{enumerate}
+
+\item Compute the following limits.
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item $\displaystyle\lim_{t\to\pi/2}\frac{\left|\cos t-\sin t\right|}{\left|\cos t\right|-\left|\sin t\right|}$
+\item $\displaystyle\lim_{x\to\infty} x^{\sin\left(\frac1x\right)}$
+\end{enumerate}
+
+\item Find the point(s) on the curve $2\tan^{-1}(y/x)=\ln\left(x^2+y^2\right)$ at which the tangent line is horizontal.
+
+\item A point P in the first quadrant of the Cartesian plane is moving along a circle centered at the origin. As the point $P$ moves, the $x$-intercept of the tangent to the circle at $P$ moves on the $x$-axis at the rate of $1$ unit per second. At what rate is the point $P$ moving when the tangent line has slope $-1$?
+\end{enumerate}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[R]{\textit{2025-2026 Fall Midterm}}
+\fancyhead[L]{\textit{Hacettepe MAT123 Exam Solutions Version 2}}
+
+%Last update: 03/09/2026 ??:??
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item For $x \ne 0$, $f'(x) = \dfrac{2}{x^3} e^{-1/x^2}$ by the chain rule. Also,
+\[f'(0) = \lim_{x \to 0} \frac{e^{-1/x^2}}{x} \overset{\text{L'H.}}{=} \lim_{x\to0}\frac{1/x}{e^{1/x}}=\lim_{t\to\pm\infty}\frac t{e^t}\overset{\text{L'H.}}{=}\lim_{t\to\pm\infty}\frac1{e^t}=0.\]
+
+Hence,
+\[f'(x) = \begin{cases} \dfrac{2}{x^3} e^{-1/x^2}, & \text{if } x \ne 0 \\ 0, & \text{if } x = 0 \end{cases}.\]
+\[\boxed{
+\begin{gathered}
+\text{The only critical point is } x=0. \text{ There are no singular points.}\\
+f\text{ is increasing on }(-\infty,0)\text{ and decreasing on }(0,\infty).\\
+f(0)=0\text{ is the only local (and also absolute) minimum value of }f.
+\end{gathered}
+}\]
+
+\item 
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item $\boxed{\text{TRUE.}}$ For $x_1, x_2$ in the domain of an increasing function $f$ with $x_1 \ne x_2$, if \linebreak $x_1 < x_2$ then $f(x_1) < f(x_2)$, and if $x_1 > x_2$ then $f(x_1) > f(x_2)$. Thus, $f(x_1) \ne f(x_2)$, so $f$ is one-to-one and has an inverse.
+
+\item $\boxed{\text{FALSE.}}$ $f(x) = |x|$ is continuous on $(-\infty, \infty)$ but not differentiable at $x = 0$.
+
+\item $\boxed{\text{FALSE.}}$ Consider $f(x) = x^3$, whose critical point is $x = 0$ ($f'(0) = 0$). However, $f(0) = 0$ is neither a local maximum nor a local minimum value.
+
+\item $\boxed{\text{TRUE.}}$ Since $f'(x)/f''(x) > 0$, $f'(x)$ and $f''(x)$ must have the same sign and $f'(x) \ne 0$ on $(a, b)$. By the Intermediate Value Theorem, $f'(x)$ cannot change sign on $(a, b)$ without crossing zero. Thus, either $f'(x) > 0$ for all $x \in (a, b)$ or $f'(x) < 0$ for all $x \in (a, b)$, meaning $f(x)$ is strictly increasing or strictly decreasing on $(a, b)$.
+\end{enumerate}
+
+\item 
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Note that for $t$ close to $\frac{\pi}{2}$, $\cos t - \sin t < 0$, $\left|\cos t\right| = \cos t$, and $\left|\sin t\right| = \sin t$.
+\[\lim_{t \to \frac{\pi}{2}^-} \frac{\left|\cos t - \sin t\right|}{\left|\cos t\right| - \left|\sin t\right|} = \lim_{t \to \frac{\pi}{2}^-} \frac{\sin t - \cos t}{\cos t - \sin t} = -1\]
+\[\lim_{t \to \frac{\pi}{2}^+} \frac{\left|\cos t - \sin t\right|}{\left|\cos t\right| - \left|\sin t\right|} = \lim_{t \to \frac{\pi}{2}^+} \frac{\sin t - \cos t}{-\cos t - \sin t} = \frac{1 - 0}{-0 - 1} = -1\]
+
+Since both one-sided limits equal $-1$, the limit is $\boxed{-1}$.
+
+\item Let $y = x^{\sin(1/x)}$. Then $\ln y = \sin(1/x) \ln x$.
+\[\lim_{x \to \infty} \sin\left(\frac{1}{x}\right) \ln x = \lim_{x \to \infty} \frac{\ln x}{\csc(1/x)} \quad \left[\frac{\infty}{\infty}\right]\]
+
+Applying L'Hôpital's Rule:
+\[= \lim_{x \to \infty} \frac{1/x}{-\csc(1/x) \cot(1/x) (-1/x^2)} = \lim_{x \to \infty} \tan\left(\frac{1}{x}\right) \frac{\sin(1/x)}{1/x} = 0 \cdot 1 = 0\]
+Thus, $\displaystyle\lim_{x \to \infty} x^{\sin(1/x)} = e^0 = \boxed1$.
+\end{enumerate}
+
+\item Differentiating both sides implicitly with respect to $x$,
+\[2 \frac{\frac{d}{dx}(y/x)}{1 + (y/x)^2} = \frac{\frac{d}{dx}(x^2 + y^2)}{x^2 + y^2},\]
+\[2 \frac{\dfrac{y'x - y}{x^2}}{\dfrac{x^2 + y^2}{x^2}} = \frac{2x + 2yy'}{x^2 + y^2}.\]
+
+Simplifying gives $y'x - y = x + yy'$, so $y'(x - y) = x + y$, yielding
+\[y' = \frac{x + y}{x - y}.\]
+
+For horizontal tangents, we set $y' = 0$, which implies $y = -x$. Substituting $y = -x$ into the original equation,
+\[2 \tan^{-1}(-1) = \ln(2x^2) \implies 2 \left(-\frac{\pi}{4}\right) = \ln(2x^2) \implies 2x^2 = e^{-\pi/2},\]
+\[x = \pm \frac{1}{\sqrt{2}} e^{-\pi/4}.\]
+
+Since $y = -x$, the points are
+\[\boxed{\left(\frac{1}{\sqrt{2}} e^{-\pi/4}, -\frac{1}{\sqrt{2}} e^{-\pi/4}\right) \quad \text{and} \quad \left(-\frac{1}{\sqrt{2}} e^{-\pi/4}, \frac{1}{\sqrt{2}} e^{-\pi/4}\right)}.\]
+
+\item Let the circle have radius $r$, so its equation is $x^2 + y^2 = r^2$. A point $P$ in the first quadrant can be parametrized as $P(r \cos \theta, r \sin \theta)$ for $\theta \in (0, \pi/2)$. The slope of the tangent line at $P$ is $m =-\frac xy= -\cot \theta$. The equation of the tangent line at $P$ is
+\[y - r \sin \theta = -\cot \theta (x - r \cos \theta) \qquad[y-y_0=m(x-x_0)].\]
+
+Setting $y = 0$, the $x$-intercept is $x_0 = r \sec \theta$. We are given $\left.\dfrac{dx}{dt}\right|_{x=x_0} = 1$. Differentiating $x = r \sec \theta$ with respect to $t$,
+\[\frac{dx}{dt} = r \sec \theta \tan \theta \frac{d\theta}{dt} = 1 \implies \frac{d\theta}{dt} = \frac{1}{r \sec \theta \tan \theta}.\]
+
+The speed of point $P$ moving along the circle is $v = r \left|\frac{d\theta}{dt}\right| = \frac{1}{\sec \theta \tan \theta} = \frac{\cos^2 \theta}{\sin \theta}$.
+
+When the tangent line has slope $-1$, $-\cot \theta = -1 \implies \theta = \frac{\pi}{4}$. At $\theta = \frac{\pi}{4}$:
+\[v = \frac{\cos^2(\pi/4)}{\sin(\pi/4)} = \frac{(1/\sqrt{2})^2}{1/\sqrt{2}} = \boxed{\frac{1}{\sqrt{2}} \text{ units/sec}}.\]
+\end{enumerate}
+\end{document}

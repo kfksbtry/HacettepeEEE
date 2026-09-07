@@ -1,0 +1,201 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Essential Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{pgfplots}
+\usepackage[inline]{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% Misc
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{fillbetween}
+\setlength{\parskip}{3pt}
+\setstretch{1.15}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+\textbf{2016-2017 Fall \\MAT123-07 Midterm\\05/12/2016}
+\end{center}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+
+\item Evaluate the following limits.
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+
+\item $\displaystyle \lim_{x \to \infty} [ e^x + 1]^{\frac{1}{x}}$
+
+\item $\displaystyle \lim_{x \to 1} \frac{x-1}{\sqrt{x+3} - 2}$
+
+\end{enumerate}
+
+\item For which values of $a$ is
+
+\[
+f(x) =
+\begin{cases}
+a^2x - 2a, & x \geq 2 \\
+12,  & x < 2
+\end{cases}
+\]
+
+continuous at every $x$?
+
+\item Find an equation for the tangent line to the curve $ y = x^{\sin x}$, at the point $(\frac{\pi}{2}, \frac{\pi}{2})$.
+
+\item The length of a rectangle decreases at 3 cm/s, while its width increases at 2 cm/s. At a certain moment, the rectangle is 50 cm long and 20 cm wide. Is the area of the rectangle increasing or decreasing, and how fast?
+
+\item Sketch the graph of $\displaystyle y = \frac{2x^2}{x^2-1}$.
+
+\item Show that the equation $x^4 + 3x + 1$ has exactly one solution in the interval $[-2, -1]$.
+
+\end{enumerate}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[R]{\textit{2016-2017 Fall Midterm}}
+\fancyhead[L]{\textit{Hacettepe MAT123 Exam Solutions Version 2}}
+
+% Last update: 05/09/2026 23:49
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item To solve the limit easily, we can use logarithms. The expression is continuous and differentiable for $x > 0$. Assume that the limit exists, then let L be the value of the limit.
+\[ L = \lim_{x \to \infty} [ e^x + 1]^{\frac{1}{x}} \]
+\[
+\ln(L) = \ln\left(\lim_{x \to \infty} [ e^x + 1]^{\frac{1}{x}}\right) = \lim_{x \to \infty} \left[ \ln\left( [ e^x + 1]^{\frac{1}{x}} \right) \right]
+\]
+\[\ln(L) = \lim_{x \to \infty} \left[ \frac{\ln( e^x + 1)}{x}\right]\]
+
+The expressions $x$ and $ e^x + 1$ tend to infinity as $x$ approaches infinity. L'Hôpital's rule suggests that we take the derivatives of both sides of the fraction if there's an indeterminate form of infinity ($\frac{\infty}{\infty}$). Using the chain rule, we get:
+\[\ln(L) \overset{\text{L'H.}}{=} \lim_{x \to \infty} \left[ \frac{\frac{1}{ e^x+1} \cdot  e^x}{1}\right] = \lim_{x \to \infty} \left( \frac{ e^x}{ e^x+1} \right)\]
+
+It is obvious that $\ln(L) = 1$. $ e^x$ grows at the same rate as $ e^x + 1$. The behavior can be confirmed using L'Hôpital's rule. Without further ado, we can convert the logarithm back to its original form.
+\[\ln(L) = 1\implies\boxed{L=e}\]
+
+\item If we substitute for $x = 1$, it is in the form $0/0$. Multiply each side by the conjugate of the denominator.
+\begin{align*}
+\lim_{x \to 1}\left(\frac{x-1}{\sqrt{x+3}-2}\cdot\frac{\sqrt{x+3}+2}{\sqrt{x+3}+2}\right)
+&=\lim_{x\to1}\frac{(x-1)(\sqrt{x+3}+2)}{x-1}\\
+&=\lim_{x\to1}(\sqrt{x+3}+2)=\boxed{4}
+\end{align*}
+\end{enumerate}
+
+\item If $f$ is continuous at a point, then the one-sided limits must be equal to the value of the function at that point. $f$ is constant for $x < 2$, meanwhile polynomial for $x \geq 2$. If we check the point where $x=2$, the continuity will be provided for all $x$.
+\[\lim_{x\to2^-}f(x)=12,\quad\lim_{x\to2^+}f(x)=a^2x-2a\implies12=2a^2-2a\]
+\[2(a^2-a-6)=0\implies(a-3)(a+2)=0\implies\boxed{a_1=3,\:a_2=-2}\]
+
+\item Take logarithms of both sides. Then differentiate implicitly.
+\[y(x) = x^{\sin x}\]
+\[\ln(y) = \sin x \cdot \ln x\]
+\[\frac{d}{dx}\ln(y) = \frac{d}{dx}(\sin x \cdot \ln x)\]
+\[\frac{1}{y} \cdot \frac{dy}{dx} =  \cos x \cdot \ln x +  \sin x \cdot \frac{1}{x}\]
+
+\begin{equation} \frac{dy}{dx} = x^{\sin x}\left(\cos x \cdot \ln x +  \sin x \cdot \frac{1}{x}\right)\label{eq:16_17_fall_final_1}\end{equation}
+
+Recall: $y-y_0 = m(x-x_0)$, where $m$ is the slope. We can evaluate \eqref{eq:16_17_fall_final_1} at $x = \frac{\pi}{2}$ because $\left.\frac{dy}{dx}\right|_{(\pi/2,\, \pi/2)}$ gives the rate of change at that point.
+\[x_0=\frac{\pi}{2},\,y_0 = \frac{\pi}{2}\]
+\[m=\left.\frac{dy}{dx}\right|_{(\pi/2,\, \pi/2)} = \left(\frac{\pi}{2}\right)^{\sin \frac{\pi}{2}}\left(\cos\frac{\pi}{2} \cdot \ln \frac{\pi}{2} + \sin \frac{\pi}{2} \cdot \frac{2}{\pi}\right) = 1\]
+
+Therefore, the tangent line is $\boxed{y=x}$.
+
+\item Let $w$, $l$ be the functions of time representing width and length, respectively. Then the area of the rectangle can be written as:
+\[A(t) = w(t)\cdot l(t)\]
+
+Take the derivative of both sides with respect to $t$. Apply the chain rule.
+\[\frac{d}{dt}A(t) = \frac{d}{dt}(w(t)\cdot l(t))\]
+\[A'(t) = w'(t)\cdot l(t) + w(t)\cdot l'(t)\]
+
+Let $t_1$ be the moment when it is as told in the question.
+\[l'(t_1) = -3,\,\,w'(t_1) = 2,\,\,l(t_1) = 50,\,\, w(t_1) = 20\]
+\[A'(t_1) = 2\cdot 50 - 20\cdot 3 = 40\]
+\[\boxed{A'(t_1) = 40\, \text{cm}^2/\text{s}}\]
+
+Since $A'(t_1) > 0$, the area increases at $t=t_1$.
+
+\item First off, find the domain. The expression is undefined when the denominator is zero. Therefore, $x^2-1 \neq 0 \,\rightarrow\, x\neq \pm 1$. Vertical asymptotes occur at $x = \pm 1$.
+\[\mathcal{D} = \mathbb{R} - \{-1, 1\} \]
+Let us find the limit at infinity.
+\[\lim_{x\to \infty} \frac{2x^2}{x^2-1} \overset{\text{L'H.}}{=} \lim_{x\to \infty} \frac{4x}{2x} = \lim_{x\to \infty} 2 = 2\]
+
+Similarly,
+\[\lim_{x\to -\infty} \frac{2x^2}{x^2-1} = 2\]
+
+$y=2$ is the only horizontal asymptote. Now, let us glance at the critical points. This will give us an idea of where the graph becomes stationary. Take the first derivative by applying the quotient rule.
+\[\frac{d}{dx}(y)=\frac{d}{dx}\left(\frac{2x^2}{x^2-1}\right)\]
+\[y'=\frac{4x\cdot(x^2-1)-2x^2\cdot 2x}{\left(x^2-1\right)^2}=-\frac{4x}{\left(x^2-1\right)^2} \]
+
+For $x=0$, $y'=0$. (0,0) is a critical point. Look for the inflection points now. Take the second derivative.
+\[y''=-\frac{4\cdot\left(x^2-1\right)^2-4x\cdot2\left(x^2-1\right)(2x)}{\left(x^2-1\right)^4}=\frac{12x^2+4}{\left(x^2-1\right)^3}\]
+$\forall x \in \mathbb{R},\,12x^2+4 > 0$. Therefore, no inflection points.
+
+Eventually, set up a table and see what the graph looks like in certain intervals.
+\begin{center}
+    \large
+    \begin{tabular}{ |c| c c c c| } 
+    \hline
+        $x$ & $(-\infty, -1)$ & $(-1, 0)$ & $(0, 1)$ &  $(1, \infty)$ \\
+        \hline
+        $y$ & $(2, \infty)$ & $(-\infty, 0)$ & $(-\infty, 0)$ & $(2, \infty)$\\
+        \hline
+        $y'$ sign & + & + & - & - \\
+        \hline
+        $y''$ sign & + & - & - & + \\
+        \hline
+    \end{tabular}
+\end{center}
+
+Knowing that $f(0)=0$, we may sketch the graph.
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines = center,
+    xlabel = $x$, ylabel = $y$,
+    domain=-4:4,
+    samples=300,
+    ymin=-10, ymax=10,
+    xmin=-4, xmax=4,
+    restrict y to domain=-10:10,
+    enlargelimits=true,
+    axis line style={->},
+    scale=1.5
+    ]
+    \addplot[blue, thick] {2*x^2/(x^2 - 1)};
+
+    \draw[dashed, red] (axis cs:1,-10) -- (axis cs:1,10);
+    \draw[dashed, red] (axis cs:-1,-10) -- (axis cs:-1,10);
+    \draw[dashed, red] (axis cs:-4,2) -- (axis cs:4,2);
+
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+\item Let $f(x) = x^4 +3x+1$. $f$ is continuous everywhere. IVT (Intermediate Value Theorem) states that $f$ takes any value on the interval $[a, b]$ between $f(a)$ and $f(b)$. Let us check $f(-1)$ and $f(-2)$.
+\[ f(-1) = (-1)^4 + 3(-1) + 1 = -1,\qquad f(-2) = (-2)^4 + 3(-2) + 1 = 11\]
+
+By IVT, there exists at least one point on $[-2, -1]$ such that the value of $f$ is zero there. To show that this is the only point where $f(x) = 0$, we may use MVT (Mean Value Theorem). $f$ is differentiable on $(-2, -1)$ as well as it is continuous on $[-2, -1]$. By MVT, there exists a point $c$ such that
+\[f'(c)=\frac{f(b)-f(a)}{b-a}\]
+where $-2\leq a \leq-1$ and $-2\leq b\leq-1$. We can show that $f(x)$ has no more than one root on the interval $(-2, -1)$. Assume that we have $a$ and $b$ such that we have two distinct roots, meaning $f'(c) = 0$ somewhere on $(-2, -1)$. So,
+\[f'(x)=4x^3+3\implies f'(c)=4c^3+3\]
+\[f'(c)=0\implies4c^3+3=0\implies c=\sqrt[3]{-\frac{3}{4}}>-1\]
+
+The only point where $f(x)=0$ is $c=\sqrt[3]{-\frac{3}{4}}$; however, it is outside the interval. This contradicts our assumption that we have two distinct roots on $(-2, -1)$. Therefore, there's only one root on the interval $(-2,-1)$.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,202 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Essential Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% Misc
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{fillbetween}
+\setlength{\parskip}{3pt}
+\setstretch{1.15}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+\textbf{2015-2016 Spring \\MAT124 Midterm\\14/04/2016\\Duration: 120 minutes}
+\end{center}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Find the length of the parametric curve
+\[x= (1+\cos t)\cos t, \: y=(1+\cos t)\sin t,\: 0\leq t\leq 2\pi.\]
+\item Find parametric equations of the tangent line to the parametric curve \linebreak $\vec r= t\vec{i}+t^2\vec{j}+t^3\vec{k},\:-\infty<t<\infty$, at the point with $t=2$.
+\end{enumerate}
+
+\item Consider the functions $f(x,y)=x^2y$ and $g(x,y)=x^3+5y^2$.
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Compute $\nabla f$ and $\nabla g$. ($\nabla=\text{grad}$)
+\item Find all unit vectors $\vec u=a\vec i+b\vec j$ along which the directional derivatives of $f$ and $g$ at the point $P_0(2,1)$ are equal.
+\item Find all points $P(x,y)$ in the plane at which the directional derivatives of $f$ and $g$ in the direction of $\vec v=\vec i+\vec j$ are zero.
+\end{enumerate}
+
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Show that the limit of $f(x,y)$ as $(x,y)$ approaches to $(0,0)$ along any line through the origin is the same.
+\item Show that $\displaystyle\lim_{(x,y)\to(0,0)}f(x,y)$ does not exist.
+\end{enumerate}
+
+\item Find and classify the critical points of $f(x,y)=2x^2+y^2+2x^2y$.
+
+\item Find the absolute maximum and minimum values of the function
+\[f(x,y)=2(x^2+y^2-1)^2+x^2-y^2\]
+on the unit disk $D=\{(x,y)\mid x^2+y^2\leq 1\}$.
+
+\end{enumerate}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[R]{\textit{2015-2016 Spring Midterm}}
+\fancyhead[L]{\textit{Hacettepe MAT124 Exam Solutions Version 2}}
+
+%Last update: 28/8/26 (28th of August) 11:10
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item The length of a parametrized curve can be calculated with the formula
+\[L=\int_a^b\sqrt{\left(\frac{dy}{dt}\right)^2+\left(\frac{dx}{dt}\right)^2}\,dt.\]
+
+Find the derivatives of $x$ and $y$ with respect to $t$.
+\[\frac{dx}{dt}=-\sin t\cos t - (1+\cos t)\sin t, \quad \frac{dy}{dt}=-\sin^2 + (1+\cos t)\cos t\]
+
+Then
+\[\left(\frac{dx}{dt}\right)^2=\sin^2t\cos^2t+2\sin^2t\cos t(1+\cos t)+(1+\cos t)^2\sin^2t,\]
+\[\left(\frac{dy}{dt}\right)^2=\sin^4t-2\sin^2t(1+\cos t)\cos t+(1+\cos t)^2\cos ^2 t.\]
+
+The middle terms cancel each other in the addition. Recall the trigonometric identities $\sin^2t+\cos^2t=1$ and $\cos 2t=2\cos^2 t-1$. We have
+\begin{align*}\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2&=\sin^2t\cos^2t+(1+\cos t)^2\sin^2t+\sin^4t+(1+\cos t)^2\cos^2t\\[1em]&=\sin^2t\cos^2t+\sin^4t+(1+\cos t)^2\sin^2t+(1+\cos t)^2\cos^2t\\[1em]&=\sin^2t(\sin^2t+\cos^2t)+(1+\cos t)^2(\cos^2t+\sin^2t)\\[1em]&=\sin^2t+(1+\cos t)^2\\[1em]&=\sin^2t+1+2\cos t+\cos^2t=2+2\cos t =4\cos^2\frac t2.\end{align*}
+
+The length of the curve is
+\[L=\int_{0}^{2\pi}\sqrt{4\cos^2\frac t2}\,dt=\int_0^{2\pi}2\left|\cos\frac t2\right|\,dt=2\cdot 2\int_0^{\pi}\cos\frac t2\,dt=\left.4\cdot\frac{\sin\frac t2}{\frac12}\right|_0^\pi=\boxed8.\]
+
+\item Find the derivative of the parametric equation with respect to $t$.
+\[\frac{d\vec r}{dt}=\frac d{dt}\left(t\right)\,\vec i+\frac d{dt}\left(t^2\right)\,\vec j+\frac d{dt}\left(t^3\right)\,\vec k=\vec i+ 2t\,\vec j+3t^2\,\vec k\]
+
+Evaluate $\vec r$ and $\vec {r'}$ at $t=2$.
+\[\left.\vec r\,\right|_{t=2}=\vec i+ 4\vec j+8\vec k,\quad \left.\vec{r'}\right|_{t=2}=2\vec i+4\vec j+8\vec k\]
+
+The parametric equations for a line that passes through the point $P_0(x_0,y_0,z_0)$ is given by
+\[\left.\begin{array}{c}
+x=r_1+r_1't\\
+y=r_2+r_2't\\
+z=r_3+r_3't
+\end{array}\right\}\quad t\in\mathbb{R}.\]
+
+Therefore, the parametric equations for the line $L$ is
+\[\boxed{\left.\begin{array}{l}
+x=2+t\\
+y=4+4t\\
+z=8+12t
+\end{array}\right\}\quad t\in\mathbb{R}}.\]
+
+\end{enumerate}
+
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item The gradient of each function is below.
+\[\boxed{\begin{aligned}
+\nabla f=\left\langle f_x, f_y\right\rangle&=\left\langle2xy, x^2\right\rangle\\
+\nabla g=\left\langle g_x, g_y\right\rangle&=\left\langle3x^2, 10y\right\rangle
+\end{aligned}}
+\]
+
+\item Since $\vec u$ is a unit vector, we have $|\vec u|=\sqrt{a^2+b^2}=1$. The directional derivatives along the unit vector $\vec u$ evaluated at $P_0$ are
+\[D_{\vec u}f(P_0)=\nabla f\cdot\left.\vec u\right|_{P_0}=\left\langle4,4\right\rangle\cdot\left\langle a,b\right\rangle=4a+4b,\]
+\[D_{\vec u}g(P_0)=\nabla g\cdot\left.\vec u\right|_{P_0}=\left\langle12,10\right\rangle\cdot\left\langle a,b\right\rangle=12a+10b.\]
+
+We have $D_{\vec u}f(P_0)=D_{\vec u}g(P_0)$.
+\[4a+4b=12a+10b\implies b=-\frac{4a}{3}\]
+
+Along with $\sqrt{a^2+b^2}=1$, we find
+\[\sqrt{a^2+b^2}=1\implies a^2+\left(\frac{-4a}3\right)^2=1\implies25a^2=9\implies a=\pm\frac{5}{3}.\]
+
+Hence
+\[\boxed{\vec u=\frac35\vec i-\frac45\vec j\quad \text{or}\quad\vec u=-\frac35\vec i+\frac45\vec j}.\]
+
+\item Since $\vec v$ is not a unit vector, define the unit vector $\vec w=\dfrac{\vec v}{\left|\vec v\right|}=\dfrac{\vec i+\vec j}{\sqrt2}$.
+
+Set the directional derivatives to $0$.
+\[D_{\vec w}f=0\implies \nabla f\cdot \vec w=0\implies\left\langle2xy,x^2\right\rangle\cdot\left\langle\frac1{\sqrt2},\frac1{\sqrt2}\right\rangle=0\implies2xy+x^2=0\]
+\[D_{\vec w}g=0\implies \nabla g\cdot \vec w=0\implies\left\langle3x^2,10y\right\rangle\cdot\left\langle\frac1{\sqrt2},\frac1{\sqrt2}\right\rangle=0\implies3x^2+10y=0\]
+
+Factor $x$ in the first equation.
+\[x(2y+x)=0\implies x=0\text{ or }x=-2y\]
+
+Consider the second equation with the relations found above.
+\[3x^2+10y=0\implies\left\{\begin{array}{l}x=0\implies y=0\\x=-2y\implies y(12y+10)=1\implies y=0\text{ or }y=-\frac{10}{12}\end{array}\right.\]
+
+All the points are $\boxed{(x,y)=(0,0)\text{ and }(x,y)=\left(\frac53,-\frac{5}{6}\right)}$.
+
+\end{enumerate}
+
+\item \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Along any line through the origin (except the vertical line) can be defined by $y=mx$. Along $y=mx$,
+\begin{align*}\lim_{(x,y)\to(0,0)}f(x,y)&=\lim_{x\to0}f(x,mx)=\lim_{x\to0}\frac{x^3(m^4x^4)}{x^4+x^3(m^2x^2)+m^{10}x^{10}}\\[1em]&=\lim_{x\to0}\frac{m^4x^3}{1+m^2x+m^{10}x^6}=\frac01=\boxed0.\end{align*}
+
+Check the vertical line. Along $x=0$,
+\[f(0,y)=0\implies\lim_{(x,y)\to(0,0)}f(x,y)=\boxed0.\]
+
+\item We earlier showed that the limit along any line through the origin is $0$. Apply the Two-Path test. Try $x=-y^2$.
+\[\lim_{(x,y)\to(0,0)}f(x,y)=\lim_{y\to0}f\left(-y^2,y\right)=\lim_{y\to0}\frac{-y^6y^4}{y^8-y^6y^2-y^{10}}=\lim_{y\to0}\frac{-y^{10}}{y^{10}}=-1\neq0\]
+
+Since we have two different limits, the limit $\displaystyle\lim_{(x,y)\to(0,0)}f(x,y)$ does not exist.
+
+\end{enumerate}
+
+\item Obtain the partial derivatives and set to $0$.
+\[f_x=4x+4xy=0\implies 4x(1+y)=0\implies x=0 \text{ or } y=-1\]
+\[f_y=2y+2x^2=0\implies\left\{\begin{array}{l}x=0\implies y=0\\ y=-1\implies x=\pm 1\end{array}\right.\]
+
+Thus the critical points are $(0,0),~(1,-1)$ and $(-1,-1)$. Obtain the Hessian determinant.
+\[f_{xx}=4+4y,\quad f_{yy}=2,\quad f_{xy}=f_{yx}=4x\]
+\[D=\begin{vmatrix}f_{xx} & f_{xy} \\f_{yx} & f_{yy}\end{vmatrix}=f_{xx}f_{yy}-f_{xy}^2=8+8y-16x^2\]
+
+Evaluate $D$ at the points.
+\[D(0,0)=8>0,\quad f_{yy}(0,0)=2>0\implies (0,0)\text{ is a local minimum.}\]
+\[D(1,-1)=-16<0\implies (0,0)\text{ is a saddle point.}\]
+\[D(-1,-1)=-16<0\implies (0,0)\text{ is a saddle point.}\]
+\[\boxed{(0,0)\text{ is a local minimum. }(1,-1)\text{ and }(-1,-1)\text{ are saddle points.}}\]
+\item The extreme value theorem states that a continuous function on a specific region will always reach its absolute highest and lowest values.
+
+On the interior of $D$,
+\[f_x=4(x^2+y^2-1)2x+2x=2x\left[4\left(x^2+y^2\right)-3\right]=0,\]
+\[f_y=4(x^2+y^2-1)2y-2y= 2y\left[4\left(x^2+y^2\right)-5\right]=0.\]
+
+From the first equality, we have $x=0$ or $x^2+y^2=\frac34$.
+
+From the second one, if $x=0$, then $y=0$ or $y=\pm\frac{\sqrt5}2\notin D$.
+
+If $x^2+y^2=\frac34$, then $y=0$. Therefore, $x=\pm\frac{\sqrt3}2$.
+
+So the critical points are $(0,0)$, $\left(\frac{\sqrt3}2,0\right)$ and $\left(-\frac{\sqrt3}2,0\right)$.
+
+On the boundary of $D$,
+\[x^2+y^2=1\implies y^2=1-x^2\implies y=\pm\sqrt{1-x^2},\]
+\[f\left(x,\pm \sqrt{1-x^2}\right)=2(x^2+1-x^2-1)^2+x^2-1+x^2=2x^2-1.\]
+
+Find the critical points on the boundary.
+\[f'\left(x,\pm\sqrt{1-x^2}\right)=4x=0\]
+
+At $x=0$, $y\pm1$. The critical points are $(0,1)$ and $(0,-1)$.
+
+The end points are $(1,0)$ and $(-1,0)$.
+
+Evaluate $f$ at all the aforementioned points and compare the values.
+\[f(0,0)=2,\qquad f(0,1)=f(0,-1)=-1\]
+\[f(1,0)=f(-1,0)=1,\qquad f\left(\sqrt3/2, 0\right)=f\left(-\sqrt3/2,0\right)=7/8\]
+
+\end{enumerate}
+\end{document}

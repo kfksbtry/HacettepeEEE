@@ -1,0 +1,196 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Essential Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{pgfplots}
+\usepackage[inline]{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% Misc
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{fillbetween}
+\setlength{\parskip}{3pt}
+\setstretch{1.15}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+\textbf{2023-2024 Fall\\MAT123 Midterm\\01/11/2023}
+\end{center}
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item Evaluate the following limits without using L'Hôpital's rule.
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item $\displaystyle \lim_{t\to 0} \frac{\tan^{-1} t}{\sin^{-1} t}$
+\item $\displaystyle \lim_{x\to 0^+} x e^{\displaystyle \sin(1/x)}$
+\end{enumerate}
+
+\item A spherical balloon is being filled with air in such a way that its radius is increasing at the constant rate of 2 cm/s. At what rate is the volume of the balloon increasing at the instant when its surface has area $4\pi$ cm$^2$?
+
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item State MVT.
+\item Using MVT, show that for all $x>0$,
+\[1+x< e^x<1+x e^x\]
+\end{enumerate}
+
+\item Find the tangent line to the curve defined implicitly by the equation
+\[y^2x^x+xy=2\]
+at the point $(1,1)$. Note that $y=f(x)$.
+
+\item Find the number $A$ so that $\displaystyle\lim_{x\to\infty}\left(\frac{x+A}{x-2A}\right)^{x}=5$.
+
+\item Sketch the graph of $f(x)=(\ln x)^2$.
+
+\end{enumerate}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[R]{\textit{2023-2024 Fall Midterm}}
+\fancyhead[L]{\textit{Hacettepe MAT123 Exam Solutions Version 2}}
+
+% Last update: 06/09/2026 16:30
+
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item Rewrite the limit.
+\begin{align*}
+\lim_{t\to 0} \frac{\tan^{-1} t}{\sin^{-1} t}&= \lim_{t\to 0}\left( \frac{\tan^{-1} t}{\sin^{-1}t} \cdot\frac tt\right) = \lim_{t\to 0}\left( \frac{\tan^{-1} t}{t} \cdot\frac1{\frac {\sin^{-1}t}t}\right)\\[1em]&=\lim_{t\to0}\frac{\tan^{-1}t}t\cdot\frac1{\displaystyle\lim_{t\to 0}\frac{\sin^{-1}t}t}=1\cdot1=\boxed1
+\end{align*}
+
+The limits above are well-known limits. If we're supposed to write these limits in the form of $\sin x$ and $x$, follow these steps.
+\[\lim_{t\to0}\frac{\tan^{-1} t}{t}\overset{u=\tan^{-1} t}{=}\lim_{u\to0}\frac u{\tan u} = \lim_{u\to0}\frac{\cos u}{\frac{\sin u}u}=\frac{\displaystyle \lim_{u\to0}\cos u}{\displaystyle\lim_{u\to0}\frac{\sin u}u} = \frac11 = 1\]
+\[\lim_{t\to0}\frac{\sin^{-1} t}{t}\overset{v=\sin^{-1} t}{=}\lim_{v\to0}\frac v{\sin v} =\frac1{\displaystyle\lim_{u\to0}\frac{\sin v}v} = \frac11 = 1\]
+
+\item Start with the inequality below.
+\[-1\leq\sin(1/x) \leq 1\]
+\[ e^{-1}\leq e^{\sin(1/x)} \leq  e^1\]
+\[x e^{-1}\leq x e^{\sin(1/x)} \leq x e\]
+\[\lim_{x\to0^+}x e^{-1}\leq \lim_{x\to0^+}x e^{\sin(1/x)} \leq\lim_{x\to0^+}x e\]
+\[0\leq \lim_{x\to0^+}x e^{\sin(1/x)} \leq0\]
+
+By the squeeze theorem, the limit is $\boxed{0}$.
+\end{enumerate}
+
+\item Let $V(t),\,S(t),\,r(t)$ represent the volume, surface area and radius, respectively. $r'(t) = 2$ for all $t$. The rate of change of volume at $t=t_0$ is
+\[V'(t_0) = 4\pi r^2(t_0)r'(t_0) \quad\left[V(t) = \frac43 \pi r^3(t)\right] \]
+
+We also have $S(t_0) = 4\pi$. Using the surface area formula $S(t) = 4\pi r^2(t)$, we find that at $t=t_0$, the radius of the balloon is 1. Therefore, the rate of change of volume can now be evaluated.
+\[V'(t_0)=4\pi\cdot1^2\cdot2=\boxed{8\pi\,\text{cm}^3\text{/s}}\]
+
+\newpage
+\item
+\begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
+\item \leavevmode
+
+\vspace{-1.2em}
+$\boxed{\parbox{0.98\linewidth}{The MVT states that if a function $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, there is at least one point $P$ on the interval $(a,b)$ such that the slope of the line that passes through the endpoints is equal to the slope of the line that is tangent to $P$}}$
+
+\item Let $f(x)= e^x$. $f$ is continuous on $[0,x]$ and differentiable on $(0,x)$.  There exists at least one point $c$ on $(0,x)$ such that
+\[f'(c) =  e^c=\frac{ e^x-1}x=\frac{f(x)-f(0)}{x-0}\]
+
+From the inequality $0<c<x$,
+\[ e^0< e^c< e^x\]
+\[1<\frac{ e^x-1}x< e^x\]
+\[x< e^x-1 <x e^x\]
+\[1+x< e^x <1+x e^x\]
+\end{enumerate}
+
+\item Let us find the derivative of $x^x$ with respect to $x$.
+\[y=x^x\]
+\[\ln(y)=\ln(x^x) = x\ln x\]
+\[\frac1y\cdot y'=1\cdot\ln x + x\cdot \frac1x = \ln x +1\]
+\[y'=x^x(\ln x+1)\]
+
+We can now differentiate both sides of the equation given in the question.
+\[\frac d{dx}\left(y^2x^x + xy\right) = \frac d{dx}\,2\]
+\[2y\cdot y'\cdot x^x + y^2\cdot x^x(\ln x+1)+1\cdot y +x\cdot y'=0\]
+\[y'\cdot\left(2y\cdot x^x + x\right)=-y-y^2\cdot x^x(\ln x+1)\]
+\[y'=-\frac{y+y^2\cdot x^x(\ln x+1)}{2y\cdot x^x+x}\]
+
+Evaluating $y'$ at $(1,1)$ gives $\displaystyle-\frac23$. Use the straight line formula $y-y_0 = m(x-x_0)$.
+\[\boxed{y-1 =-\frac23(x-1)}\]
+
+\newpage
+\item Take the logarithm of both sides of the equation and apply L'Hôpital's rule.
+\begin{align*}
+\ln(5)&=\ln\left[\lim_{x\to\infty}\left(\frac{\displaystyle1+\frac Ax}{\displaystyle1-\frac {2A}x}\right)^{x}\right]=\lim_{x\to\infty}\ln\left[\left(\frac{\displaystyle1+\frac Ax}{\displaystyle1-\frac {2A}x}\right)^{x}\right]=\lim_{x\to\infty}\left[x\ln\left(\frac{\displaystyle1+\frac Ax}{\displaystyle1-\frac {2A}x}\right)\right]\\[1em]&=\lim_{x\to\infty}\left\{x\left[\ln\left(1+\frac Ax\right)-\ln\left(1-\frac {2A}x\right)\right]\right\}\quad\left[\infty\cdot0\right]\\[1em]&=\lim_{x\to\infty}\frac{\displaystyle\ln\left(1+\frac Ax\right)-\ln\left(1-\frac {2A}x\right)}{\displaystyle\frac1x}\quad\left[\frac00\right]\\[1em]&\overset{\text{L'H.}}{=}\lim_{x\to\infty}\left[\frac{\displaystyle\left(\frac1{1+\frac Ax}\right)\cdot\left(-\frac{A}{x^2}\right)-\left(\frac1{1-\frac{2A}x}\right)\cdot\left(\frac{2A}{x^2}\right)}{\displaystyle -\frac1{x^2}}\right]\\[1em]&=\lim_{x\to\infty}\left[\frac{\displaystyle\left(-\frac{A}{x^2}\right)\cdot\left(\frac1{1+\frac{A}x}+\frac{2}{1-\frac{2A}x}\right)}{\displaystyle-\frac{1}{x^2}}\right]\\[1em]&=A\lim_{x\to\infty}\frac1{\frac Ax + 1}+A\lim_{x\to\infty}\frac2{1-\frac{2A}x} = A \cdot 1 + A \cdot 2 = 3A
+\end{align*}
+
+If $\ln(5) = 3A$, then $\boxed{A =\frac{\ln5}3}$.
+
+\item First off, find the domain. The expression is defined \textit{only} for $x>0$. The only vertical asymptote occurs at $x=0$.
+\[\mathcal{D} = \mathbb{R}^+\]
+
+The limits as $x\to\infty$ and as $x\to0^+$ are:
+\[\lim_{x\to \infty}(\ln x)^2=\infty,\quad \lim_{x\to0^+}(\ln x)^2=\infty \]
+
+Take the first derivative to find the critical points.
+\[y'=2\ln x\cdot\frac1x\]
+
+The \textit{only} critical point is $x=1$.
+
+Take the second derivative by applying the quotient rule.
+\[y''=2\cdot\frac{\frac1x \cdot x-\ln x \cdot 1}{x^2}=\frac{2-2\ln x}{x^2}\]
+
+The \textit{only} inflection point is $x= e$.
+
+Consider some values of the function. Eventually, set up a table and see what the graph looks like in certain intervals.
+\[\,f\left(1\right)=0,\,f( e)=1\]
+
+\begin{center}
+    \begin{tabular}{ |c| c c c| } 
+    \hline
+        $x$ & $\left(0, 1\right)$ & $\left(1,  e\right)$&$\left( e, \infty\right)$  \\
+        \hline
+        $y$ & $(0, \infty)$ &$(0,1)$ & $(1, \infty)$ \\
+        \hline
+        $y'$ sign & - & + & + \\
+        \hline
+        $y''$ sign & + & + & - \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines = center,
+    xlabel = $x$, ylabel = $y$,
+    xtick ={1,2,...,10},
+    domain=0:12,
+    samples=800,
+    ymin=-0.1, ymax=5.1,
+    xmin=-0.1, xmax=10,
+    restrict y to domain=0:5.5,
+    enlargelimits=true,
+    axis line style={->},
+    clip=true,
+    scale=1.5,
+    ]
+    \addplot[blue, thick] {ln(x)*ln(x)};
+
+    \draw[dashed, red] (axis cs:0.05,-0.5) -- (axis cs:0.05,5.4);
+    
+    \draw[dashed, black] (axis cs:e,0) -- (axis cs:e,1);
+    \draw[dashed, black] (axis cs:0,1) -- (axis cs:e,1);
+    \node at (axis cs:e,-0.2) {e};
+    
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+\end{document}
