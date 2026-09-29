@@ -26,7 +26,7 @@
 \pagestyle{empty}
 
 \begin{center}
-\textbf{2022-2023 Spring \\MAT124 Final\\12/06/2023}
+\textbf{2022-2023 Spring\\MAT124 Final\\12/06/2023}
 \end{center}
 
 \begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
@@ -75,29 +75,42 @@ and evaluate it.
 \nabla f = \left\langle y^2z,2xyz,xy^2\right\rangle = \lambda\left\langle2x,2y,2z\right\rangle = \lambda\nabla g \\[0.2cm] x^2+y^2+z^2-4=0
 \end{array}
 \]
-\[
-\left.
-\begin{array}{ll}
-\displaystyle y^2z =\lambda \cdot2x & (1)\\[0.2cm]
-\displaystyle 2xyz =\lambda \cdot2y & (2)\\[0.2cm]
-\displaystyle xy^2 =\lambda \cdot2z & (3)\\[0.2cm]
-\end{array}
-\right\}\quad
-\begin{array}{ll}
-\displaystyle(1)\,\&\,(3)\rightarrow\frac{z}{x}=\frac{x}{z}\rightarrow x^2=z^2\rightarrow x=\pm z&(4)\\[0.4cm]
-\displaystyle(1)\,\&\,(2)\rightarrow\frac{y}{2x}=\frac{x}{y}\rightarrow y^2=2x^2\rightarrow y=\pm\sqrt{2}x&(5)\\[0.4cm]\displaystyle(4)\,\&\,(5)\rightarrow y=\pm \sqrt 2z
-\end{array}
-\]
-
+\vspace{-2em}
+\begin{align}
+y^2z &= \lambda\cdot 2x
+\label{eq:22_23_spring_final_1}\\
+2xyz &= \lambda\cdot 2y
+\label{eq:22_23_spring_final_2}\\
+xy^2 &= \lambda\cdot 2z
+\label{eq:22_23_spring_final_3}
+\end{align}
+\vspace{-2em}
+\begin{align}
+\eqref{eq:22_23_spring_final_1}\,\&\,
+\eqref{eq:22_23_spring_final_3}
+&\rightarrow \frac{z}{x}=\frac{x}{z}
+\rightarrow x^2=z^2
+\rightarrow x=\pm z
+\label{eq:22_23_spring_final_4}\\[0.4cm]
+\eqref{eq:22_23_spring_final_1}\,\&\,
+\eqref{eq:22_23_spring_final_2}
+&\rightarrow \frac{y}{2x}=\frac{x}{y}
+\rightarrow y^2=2x^2
+\rightarrow y=\pm\sqrt{2}x
+\label{eq:22_23_spring_final_5}\\[0.4cm]
+\eqref{eq:22_23_spring_final_4}\,\&\,
+\eqref{eq:22_23_spring_final_5}
+&\rightarrow y=\pm\sqrt{2}z\nonumber
+\end{align}
 Now, use the constraint to find the coordinates. Write $y$ and $z$ in terms of $x$.
 \[x^2+y^2+z^2-4=0\implies x^2+\left(\sqrt2x\right)^2+x^2-4=0\implies4x^2=4\implies x=\pm1\]
 \[\therefore y=\pm\sqrt2,\quad z=\pm1\]
-
+ 
 Evaluate $f$ at either of these points: $(1,\sqrt2,1)$, $(-1,\sqrt2,-1)$, $(-1,-\sqrt2,-1)$.
 \[f_{\text{max}}=f(1,\sqrt2,1)=1\cdot\left(\sqrt2\right)^2\cdot1=\boxed{2}\]
 
 \item \leavevmode
-\vspace{-1em}
+\vspace{-2em}
 \begin{center}
 \begin{tikzpicture}
   \begin{axis}[
@@ -108,7 +121,7 @@ Evaluate $f$ at either of these points: $(1,\sqrt2,1)$, $(-1,\sqrt2,-1)$, $(-1,-
       ymin=0, ymax=1.2,
       samples=200,
       clip=true,
-      scale=1.2,
+      scale=0.8,
     ]
     
     \addplot [
@@ -136,9 +149,9 @@ Evaluate $f$ at either of these points: $(1,\sqrt2,1)$, $(-1,\sqrt2,-1)$, $(-1,-
         samples=200,
     ] {x^(1/4)};
 
-    \node[blue] at (axis cs: 0.2, 1.1) {\large $y=1$};
-    \node[red] at (axis cs: 0.4, 0.6) {\large $y=x^{1/4}$};
-    \node[red] at (axis cs: 0.4, 0.5) {\large $x=y^4$};
+    \node[blue] at (axis cs: 0.4, 1.1) {$y=1$};
+    \node[red] at (axis cs: 0.4, 0.5) {$y=x^{1/4}$};
+    \node[red] at (axis cs: 0.4, 0.35) {$x=y^4$};
 
   \end{axis}
 \end{tikzpicture}
@@ -147,12 +160,11 @@ Evaluate $f$ at either of these points: $(1,\sqrt2,1)$, $(-1,\sqrt2,-1)$, $(-1,-
 The integral given with this order is difficult to evaluate. Change the order of integration.
 \begin{align*}\int_0^1\int_{x^{1/4}}^1\,{e}^{y^5}dy\,dx=\int_0^1\int_0^{y^4}{e}^{y^5}\,dx\,dy=\int_0^1y^4{e}^{y^5}\,dy=\left[\frac15{e}^{y^5}\right]_0^1=\boxed{\frac{{e-1}}{5}}\end{align*}
 
-\newpage
 \item Find where these two curves intersect and then find the area.
 \[2-\cos\theta=1+\cos\theta\implies2\cos\theta=1\implies\cos\theta=\frac12\implies\theta=2k\pi\pm\frac{\pi}{3},\quad k\in\mathbb{Z}\]
 \begin{center}
 \begin{tikzpicture}
-  \begin{polaraxis}[ytick=\empty, axis y line=none, xticklabel=$\pgfmathprintnumber{\tick}^\circ$,]
+  \begin{polaraxis}[ytick=\empty, axis y line=none, scale=0.9, xticklabel=$\pgfmathprintnumber{\tick}^\circ$,]
     \addplot [
       domain=-pi/3:pi/3,
       samples=300,
@@ -199,6 +211,7 @@ The integral given with this order is difficult to evaluate. Change the order of
 \end{tikzpicture}
 \end{center}
 
+\vspace{-1em}
 Let $A$ be the area.
 \begin{align*}
 A&=\int_{-\pi/3}^{\pi/3}\int_{2-\cos\theta}^{1+\cos\theta}\,r\,dr\,d\theta=\frac12\int_{-\pi/3}^{\pi/3}\left[(1+\cos\theta)^2-(2-\cos\theta)^2\right]d\theta\\[1em]&=\frac12\int_{-\pi/3}^{\pi/3}\left[1+2\cos\theta+\cos^2\theta-\left(4-4\cos\theta+\cos^2\theta\right)\right]d\theta=\frac12\int_{-\pi/3}^{\pi/3}\left(6\cos\theta-3\right)d\theta \\[1em]&=\frac12\bigg[6\sin\theta-3\theta\bigg]_{-\pi/3}^{\pi/3}=\frac12\left[6\sin\frac\pi3-3\cdot\frac\pi3-\left(6\sin\left(-\frac\pi3\right)+3\cdot\frac{\pi}3 \right)\right]=\boxed{3\sqrt3-\pi}
@@ -207,8 +220,7 @@ A&=\int_{-\pi/3}^{\pi/3}\int_{2-\cos\theta}^{1+\cos\theta}\,r\,dr\,d\theta=\frac
 \item The upper bound is $z=4-x^2-y^2$, while the lower bound is $z=0$. If we project the domain onto the $xy$-plane, we see that the upper and lower bounds for $y$ are $\sqrt{2-x^2}$ and $0$, respectively. For $x$, the integration starts from $0$ and ends at $\sqrt2$. The volume of the object can be evaluated using the following integral.
 \[{I}=\int_0^{\sqrt2}\int_0^{\sqrt{2-x^2}}\left[4-x^2-y^2-0 \right]\,dy\,dx\]
 
-This integral seems a little bit hard. We can switch to polar coordinates for ease. Use the transformation below.
-
+This integral seems a little bit hard. We can switch to polar coordinates for ease.
 \[
 \begin{array}{c}
 x^2+y^2=r^2\\
@@ -220,13 +232,16 @@ dA=dy\,dx =r\,dr\,d\theta
 0\leq\theta\leq \pi/2\\
 \end{array}
 \]
+
+\vspace{-1em}
 \begin{align*}{I}&=\int_{0}^{\pi/2}\int_{0}^{\sqrt{2}}\left(4-r^2\right)\,r\,dr\,d\theta=\int_{0}^{\pi/2}\int_{0}^{\sqrt{2}}\left(4r-r^3\right)\,dr\,d\theta\\[1em]&=\int_{0}^{\pi/2}\left[2r^2-\frac{r^4}4\right]_{r=0}^{r=\sqrt2}\,d\theta=\int_0^{\pi/2}3\,d\theta=\boxed{\frac{3\pi}2}
 \end{align*}
 
 \item
-\vspace{-0.5em}
 \begin{enumerate}[leftmargin=*,label=\textbf{\alph*.}]
 \item\leavevmode
+
+\vspace{-1em}
 \begin{center}
 \begin{tikzpicture}
   \begin{axis}[
@@ -243,7 +258,7 @@ dA=dy\,dx =r\,dr\,d\theta
     samples=30,
     domain=0:360,
     colormap/cool,
-    scale=1.8,
+    scale=1.6,
     axis on top
   ]
     \addplot3[
@@ -321,13 +336,13 @@ However, we have two distinct upper bounds for $\rho$. We need to find the value
 
 For $\phi<\cot^{-1}(4)$, the upper bound is $\frac4{\cos\phi}$. Meanwhile, for $\phi>\cot^{-1}(4)$, it is $\frac1{\sin\phi}$.
 
-The region in the $xy-$plane is circular, therefore $0\leq\theta\leq2\pi$. As for $\phi$, we have $0\leq\phi\leq\frac{\pi}2$. The volume of the object in spherical coordinates can be expressed as follows.
+The region in the $xy-$plane is circular, therefore $0\leq\theta\leq2\pi$. As for $\phi$, we have $0\leq\phi\leq\frac{\pi}2$. The volume of the object in spherical coordinates can be expressed by
 \[
 \boxed{
 V=\displaystyle\int_0^{2\pi}\int_0^{\cot^{-1}(4)}\int_1^{\textstyle\frac4{\cos\phi}}\rho^2\sin\phi\,d\rho\,d\phi\,d\theta
 +\int_0^{2\pi}\int_{\cot^{-1}(4)}^{\pi/2}\int_1^{\textstyle\frac1{\sin\phi}}\rho^2\sin\phi\,d\rho\,d\phi\,d\theta 
 }
-\]
+.\]
 
 In fact, we are looking for the minimum value of the upper bound for $\rho$ between $\displaystyle\frac1{\sin\phi}$ and $\displaystyle\frac4{\cos\phi}$. Hence, we can write the equivalent expression as follows.
 \[\boxed{V=\displaystyle\int_0^{2\pi}\int_0^{\pi/2}\int_1^{\min\left(\textstyle\frac4{\cos\phi},\frac1{\sin\phi}\right)}\,\rho^2\sin\phi\,d\rho\,d\phi\,d\theta}\]

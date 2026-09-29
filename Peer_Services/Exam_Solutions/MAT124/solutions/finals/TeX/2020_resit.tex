@@ -87,20 +87,27 @@ Use the constraint to find the value of $\lambda$.
 \[g(x,y,z) = 0 \implies \frac{-3\lambda}{2}-10=0\implies \lambda=-\frac{20}{3}\]
 
 So far, we have the equations below. Solve the system of equations and find the values of $x,y,z$ one by one.
-\[
-\left.
-\begin{array}{ll}
-\displaystyle -y-z=-\frac{20}{3}&(1)\\[1em]
-\displaystyle -x-z=-\frac{20}{3}&(2)\\[1em]
-\displaystyle -x-y=-\frac{20}{3}&(3)
-\end{array}
-\right\}\quad
-\begin{array}{ll}
-\displaystyle (1)\:\&\:(2)\implies x-y=0 & (4) \\[1em]
-\displaystyle (3)\:\&\:(4)\implies y=\frac{10}{3}&(5)\\[1em]
-\displaystyle\therefore z=\frac{10}{3},\quad x=\frac{10}{3}
-\end{array}
-\]
+\begin{align}
+-y-z &= -\frac{20}{3}
+\label{eq:19_20_spring_resit_1}\\
+-x-z &= -\frac{20}{3}
+\label{eq:19_20_spring_resit_2}\\
+-x-y &= -\frac{20}{3}
+\label{eq:19_20_spring_resit_3}
+\end{align}
+
+Solve for $x$ and $z$.
+\begin{align}
+\eqref{eq:19_20_spring_resit_1} \:\&\:
+\eqref{eq:19_20_spring_resit_2}
+\implies x-y &= 0
+\label{eq:19_20_spring_resit_4}\\
+\eqref{eq:19_20_spring_resit_3} \:\&\:
+\eqref{eq:19_20_spring_resit_4}
+\implies y = \frac{10}{3}
+\label{eq:19_20_spring_resit_5}\nonumber
+\end{align}
+\[\therefore\quad z=\frac{10}{3},\qquad x=\frac{10}{3}.\]
 
 We now have all the values. Substitute in $T(x,y,z)$ to find the minimum value of the temperature.
 \[T_{\text{min}}=T\left(\frac{10}{3},\frac{10}{3},\frac{10}{3}\right)=100-\left(\frac{10}{3}\right)^2-\left(\frac{10}{3}\right)^2-\left(\frac{10}{3}\right)^2=\boxed{\frac{200}{3}}\]
@@ -131,10 +138,9 @@ Compute the second-order partial derivatives.
 Add the second-order partial derivatives and set to $0$. The last terms eliminate each other. Write $x$ and $y$ in terms of $r$ and $\theta$.
 \begin{align*}\frac{\partial^2 z}{\partial x^2}+\frac{\partial^2 z}{\partial y^2}=&\left[\left(\frac{\partial^2z}{\partial r^2}\cdot\cos\theta +\frac{\partial^2z}{\partial\theta\,\partial r}\cdot\frac{-\sin\theta}{r}\right)\cdot\cos\theta+\frac{\partial z}{\partial r}\cdot\frac{\sin^2\theta}{r}\right]\\[1em]&+\left[\left(\frac{\partial^2z}{\partial\theta^2}\cdot\frac{-\sin\theta}{r} + \frac{\partial^2z}{\partial r\,\partial\theta}\cdot\cos\theta\right)\cdot\frac{-\sin\theta}{r}\right]\\[1em]&+\left[\left(\frac{\partial^2z}{\partial r^2}\cdot\sin\theta +\frac{\partial^2z}{\partial\theta\,\partial r}\cdot\frac{\cos\theta}{r}\right)\cdot\sin\theta+\frac{\partial z}{\partial r}\cdot\frac{\cos^2\theta}{r}\right]\\[1em]&+\left[\left(\frac{\partial^2z}{\partial\theta^2}\cdot\frac{\cos\theta}{r} + \frac{\partial^2z}{\partial r\,\partial\theta}\cdot\sin\theta\right)\cdot\frac{\cos\theta}{r}\right]=0\end{align*}
 
-\newpage
 Inspect the terms that add up to $0$. Recall the identity $\sin^2\theta+\cos^2\theta=1$, then the equation reduces to
 \begin{align*}
-\frac{\partial^2z}{\partial x^2}+\frac{\partial^2z}{\partial y^2}&=\frac{\partial^2z}{\partial r^2}\cdot\left(\cos^2\theta+\sin^2\theta\right)+\frac{\partial z}{\partial r}\cdot\frac{\sin^2\theta+\cos^2\theta}{r}+\frac1{r^2}\frac{\partial^2z}{\partial\theta^2}\cdot\left(\sin^2\theta+\cos^2\theta\right)\\[1em]&=\frac{\partial^2z}{\partial r^2}+\frac1r\frac{\partial z}{\partial r}+\frac1{r^2}\frac{\partial^2z}{\partial\theta^2}=0,
+\frac{\partial^2z}{\partial x^2}+\frac{\partial^2z}{\partial y^2}&=\frac{\partial^2z}{\partial r^2}\cdot\left(\cos^2\theta+\sin^2\theta\right)+\frac{\partial z}{\partial r}\cdot\frac{\sin^2\theta+\cos^2\theta}{r}+\frac1{r^2}\frac{\partial^2z}{\partial\theta^2}\cdot\left(\sin^2\theta+\cos^2\theta\right)\\[1em]&=\boxed{\frac{\partial^2z}{\partial r^2}+\frac1r\frac{\partial z}{\partial r}+\frac1{r^2}\frac{\partial^2z}{\partial\theta^2}=0},
 \end{align*}
 
 which we set out to demonstrate.
@@ -185,6 +191,7 @@ which we set out to demonstrate.
 \begin{align*}
 \int_0^1\int_{\sqrt{y}}^1\sqrt{1-x^3}\,dx\,dy&=\int_0^1\int_0^{x^2}\sqrt{1-x^3}\,dy\,dx=\int_0^1x^2\sqrt{1-x^3}\,dx\:\left[{\begin{array}{c}\scriptstyle u=1-x^3 \\\scriptstyle du=-3x^2\,dx\end{array}}\right]\\[1em]&=\int\frac{\sqrt{u}}{-3}\,du=-\frac29u^{3/2}+c=-\frac29\left(1-x^3\right)^{3/2}\Bigg|_0^1=\boxed{\frac29}\end{align*}
 
+\newpage
 \item\leavevmode
 
 \vspace{-2em}
@@ -229,8 +236,6 @@ which we set out to demonstrate.
 \begin{minipage}{0.46\textwidth}
 \begin{align*}A&=\int_2^4\int_2^y\,dx\,dy + \int_4^8\int_2^{16/y}\,dx\,dy\\[1em]&=\int_2^4\int_{x}^{\frac{16}x}\,dy\,dx=\int_2^4\left(\frac{16}x-x\right)\,dx\\[1em]&=\left[16\ln|x| -\frac{x^2}2\right]_2^4\\[1em]&=\left[\left(16\ln4 -\frac{4^2}{2}\right)-\left(16\ln2-\frac{2^2}{2}\right)\right]\\[1em]&=\boxed{16\ln2-6}\end{align*}
 \end{minipage}
-
-\newpage
 
 \item\leavevmode
 
@@ -352,8 +357,6 @@ x^2+y^2=1\,\implies\,r^2=1\implies r=1\\[1em]x^2+y^2=4\,\implies\,r^2=4\implies 
 \displaystyle x=\sqrt3y\implies\tan^{-1}\frac yx=\tan^{-1}\frac1{\sqrt3}\implies\theta=\frac{\pi}6\\[1em]\displaystyle\therefore 1\leq r\leq2,\quad 0\leq\theta\leq\frac{\pi}6
 \end{array}
 \]
-
-\newpage
 \begin{align*}
 \int_0^{\pi/6}\int_1^2\sin(r^2)\,r\,dr\,d\theta&=\int_0^{\pi/6}\left[-\frac12\cos{r^2}\right]_1^2\,d\theta=-\frac12\int_0^{\pi/6}\left(\cos4-\cos1\right)\,d\theta\\[1em]&=\frac12(\cos1-\cos4)\cdot\theta\,\bigg|_0^{\pi/6}=\boxed{\frac\pi{12}(\cos1-\cos4)}
 \end{align*}
@@ -372,7 +375,7 @@ x^2+y^2+z^2=8\,\implies\,z=\sqrt{8-r^2}\\[1em]
 \]
 
 Find where the surfaces $2z=x^2+y^2$ and $x^2+y^2+z^2=8$ intersect to determine the limits of $r$.
-\begin{align*}x^2+y^2+z^2=8&\implies 2z + z^2 = 8\implies (z+4)(z-2) = 0\implies z=2\\[1em]&\implies4=x^2+y^2=r^2 \implies r=2\end{align*}
+\begin{align*}x^2+y^2+z^2=8&\implies 2z + z^2 = 8\implies (z+4)(z-2) = 0\implies z=2\\&\implies4=x^2+y^2=r^2 \implies r=2\end{align*}
 
 The lower limit of $r$ is apparently $0$. The region in the $xy$-plane is circular if we project the domain. Therefore, $0\leq\theta\leq2\pi$. Now, set up the triple integral in polar coordinates.
 \begin{align*}I&=\iiint_D\frac{dV}{x^2+y^2+z^2}=\int_0^{2\pi}\int_0^2\int_{r^2/2}^{\sqrt{8-r^2}}\frac{r}{r^2+z^2}\,dz\,dr\,d\theta\\[1em]&=\int_0^{2\pi}\int_0^2\int_{r^2/2}^{\sqrt{8-r^2}}\frac{1}{1+\left(\frac zr\right)^2}\cdot\frac1r\,dz\,dr\,d\theta=\int_0^{2\pi}\int_0^2\left[\arctan\left(\frac zr\right)\right]_{r^2/2}^{z=\sqrt{8-r^2}}\,dr\,d\theta\\[1em]&=\int_0^{2\pi}\int_0^2\arctan\left(\frac{\sqrt{8-r^2}}r\right)\,dr\,d\theta-\int_0^{2\pi}\int_0^2\arctan\left(\frac r2\right)\,dr\,d\theta\end{align*}
@@ -385,7 +388,7 @@ I=2\pi\int_0^2\arctan\left(\frac{\sqrt{8-r^2}}r\right)\,dr-2\pi\int_0^2\arctan\l
 
 Now, use integration by parts for the left-hand integral in \eqref{eq:19_20_resit_1}. Apply the chain rule and the quotient rule rigorously.
 \begin{align*}
-\displaystyle u=\arctan\left(\frac{\sqrt{8-r^2}}r\right)&\implies\displaystyle du=\frac1{1+\left(\frac{\sqrt{8-r^2}}r\right)^2}\cdot\frac{\frac{1}{2\sqrt{8-r^2}}\cdot(-2r)\cdot r -\sqrt{8-r^2}\cdot 1}{r^2}\,dr\\[1em]
+\displaystyle u=\arctan\left(\frac{\sqrt{8-r^2}}r\right)&\implies\displaystyle du=\frac1{1+\left(\frac{\sqrt{8-r^2}}r\right)^2}\cdot\frac{\frac{1}{2\sqrt{8-r^2}}\cdot(-2r)\cdot r -\sqrt{8-r^2}\cdot 1}{r^2}\,dr\\
 \displaystyle dv=dr&\implies v=r
 \end{align*}
 
@@ -397,11 +400,13 @@ Notice that we have an improper integral, where we need to use limits.
 
 Compute the other integral in \eqref{eq:19_20_resit_1} using integration by parts.
 \begin{align*}
-\displaystyle u=\arctan\left(\frac{r}2\right)&\implies\displaystyle du=\frac1{\displaystyle1+\left(\frac{r}2\right)^2}\cdot\frac12\,dr\\[1em]
+\displaystyle u=\arctan\left(\frac{r}2\right)&\implies\displaystyle du=\frac1{\displaystyle1+\left(\frac{r}2\right)^2}\cdot\frac12\,dr\\
 \displaystyle dv=dr&\implies v=r
 \end{align*}
+
+\vspace{-3em}
 \begin{align}
-\int_0^2\arctan\left(\frac r2\right)\,dr&=r\cdot\arctan\left(\frac r2\right)\Bigg|_0^2-\int_0^2r\cdot\frac2{4+r^2}\,dr\nonumber\\[1em]&=\left[r\cdot\arctan\left(\frac r 2\right)-\ln\left|4+r^2\right|\right]_0^2
+\int_0^2\arctan\left(\frac r2\right)dr&=r\arctan\left(\frac r2\right)\Bigg|_0^2-\int_0^2\frac{2r}{4+r^2}\,dr=\left.r\arctan\frac r 2-\ln\left|4+r^2\right|\right|_0^2
 \label{eq:19_20_resit_3}
 \end{align}
 
